@@ -11,6 +11,7 @@ A modern, high-performance portfolio built with Next.js 16, showcasing 15+ years
 - **Fonts**: Next.js Google Fonts (Space Grotesk, Plus Jakarta Sans, DM Sans)
 - **UI Primitives**: Radix UI, Base UI, Class Variance Authority
 - **PDF Generation**: jsPDF (CV download feature)
+- **Email Service**: Resend (contact form API)
 - **Testing**: Playwright (SDET expertise)
 
 ## Architecture
@@ -20,7 +21,9 @@ This portfolio follows a **modular, config-driven** architecture:
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── api/generate-cv/    # PDF CV generation endpoint
+│   ├── api/                # API routes
+│   ├── generate-cv/    # PDF CV generation endpoint
+│   └── contact/        # Contact form email endpoint (Resend)
 │   ├── layout.tsx         # Root layout with fonts & metadata
 │   ├── page.tsx           # Home page (composes sections)
 │   ├── loading.tsx        # Loading UI
@@ -37,7 +40,7 @@ src/
 │   ├── ClientsSection.tsx  # Logo grid
 │   ├── TestimonialsSection.tsx # Carousel with pagination
 │   ├── ContactSection.tsx  # Form + contact methods
-│   ├── ContactForm.tsx    # Compact form (mailto: submission)
+│   ├── ContactForm.tsx    # Compact form (API submission via Resend)
 │   ├── SocialLinks.tsx    # Social media links
 │   └── ...
 ├── data/                  # Config-driven content (SSG)
@@ -82,7 +85,7 @@ src/
 - **CV Download**: Generates PDF with jsPDF via API route
 - **Responsive Design**: Mobile-first with progressive enhancement
 - **Animations**: Framer Motion fade-in, scroll-triggered effects
-- **Contact Form**: Compact form submits via `mailto:` with pre-filled data
+- **Contact Form**: Sends email via Resend API with form data
 - **Interactive Elements**: Clickable email (mailto:), phone (tel:), location (Google Maps)
 - **Social Links**: LinkedIn & Facebook with glass effect
 - **Comprehensive Comments**: Next.js idiomatic JSDoc/TSDoc on all 28+ files

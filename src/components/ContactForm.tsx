@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { getEmail } from "@/data/contact";
 
 /**
  * Contact Form Component - Client Component
@@ -11,7 +10,7 @@ import { getEmail } from "@/data/contact";
  * A compact, modern contact form with:
  * - Name, email, and message fields
  * - Client-side validation
- * - Submits via mailto: link to site owner's email
+ * - Submits via API route to send email using Resend
  * - Glassmorphism styling consistent with design system
  *
  * @returns A compact contact form with modern UI
@@ -26,7 +25,6 @@ export default function ContactForm() {
     message: "",
   });
   const [status, setStatus] = useState("idle");
-  const emailAddress = getEmail();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -38,13 +36,13 @@ export default function ContactForm() {
     setStatus("sending");
 
     try {
-      // Build mailto: link with form data
-      const subject = `Portfolio Contact: ${formData.name}`;
-      const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
-      const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      // Open email client with pre-filled data
-      window.location.href = mailtoLink;
+      if (!response.ok) throw new Error("Failed to send");
 
       setStatus("sent");
       setFormData({ name: "", email: "", message: "" });
