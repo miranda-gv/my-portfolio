@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0a0a0f;
+  --color-foreground: #ffffff;
+  --color-primary: #D4AF37;
+  --color-primary-glow: rgba(212, 175, 55, 0.3);
+  --color-secondary: #C9A961;
+  --color-muted: rgba(255, 255, 255, 0.05);
+  --color-muted-foreground: #b4b4b4;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --color-card-foreground: #ffffff;
+  --color-border: rgba(255, 255, 255, 0.18);
+  --radius: 0.625rem;
+  --font-heading: var(--font-space-grotesk), var(--font-plus-jakarta), var(--font-dm-sans), serif;
+  --font-sans: var(--font-dm-sans), var(--font-plus-jakarta), var(--font-space-grotesk), sans-serif;
+  --text-sm: 0.95rem;
+  --leading-tight: 1.25rem;
+}
+
+@utility glass-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+@utility timeline-line {
+  background: linear-gradient(180deg, transparent, var(--color-primary), transparent);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+@utility glass-base {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  *:focus {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
