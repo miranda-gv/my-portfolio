@@ -86,7 +86,7 @@ export default function ContactForm() {
         type="submit"
         disabled={status === "sending"}
         className={cn(
-          "w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-medium uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02]",
+          "w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02]",
           status === "sent"
             ? "bg-green-500/20 text-green-400"
             : status === "error"
