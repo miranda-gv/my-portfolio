@@ -1,6 +1,5 @@
 import Script from 'next/script';
-
-const GA_ID = 'G-30QLM21R7W';
+import { siteConfig } from '@/config/site';
 
 /**
  * Google Analytics component using gtag.js
@@ -11,7 +10,7 @@ export default function GoogleAnalytics() {
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`}
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -19,7 +18,7 @@ export default function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_ID}');
+          gtag('config', '${siteConfig.gaId}');
         `}
       </Script>
     </>

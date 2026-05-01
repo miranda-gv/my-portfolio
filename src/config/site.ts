@@ -7,10 +7,12 @@
 export const siteConfig = {
   name: "Miranda George",
   title: "Miranda George | Sr. QA Engineer Portfolio",
+  jobTitle: "Senior QA Engineer",
   description:
     "Portfolio of Miranda George, a Senior QA Engineer specializing in manual and automated testing using Playwright.",
   url: "https://mirandageorge.us",
   ogImage: "https://mirandageorge.us/og-image.png",
+  gaId: "G-30QLM21R7W",
   links: {
     linkedin: "https://www.linkedin.com/in/mirandageorge/",
     facebook: "https://facebook.com/miranda.geov",

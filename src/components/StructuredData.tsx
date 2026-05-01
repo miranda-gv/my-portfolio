@@ -1,20 +1,19 @@
+import { siteConfig } from '@/config/site';
+
 /**
  * JSON-LD structured data for Person/Portfolio rich snippets.
+ * Pulls from siteConfig to avoid duplication.
  * @see https://schema.org/Person
  */
 export default function StructuredData() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Miranda George',
-    jobTitle: 'Senior QA Engineer',
-    description:
-      'Portfolio of Miranda George, a Senior QA Engineer specializing in manual and automated testing using Playwright.',
-    url: 'https://mirandageorge.us',
-    sameAs: [
-      'https://www.linkedin.com/in/mirandageorge/',
-      'https://facebook.com/miranda.geov',
-    ],
+    name: siteConfig.name,
+    jobTitle: siteConfig.jobTitle,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    sameAs: Object.values(siteConfig.links),
   };
 
   return (
