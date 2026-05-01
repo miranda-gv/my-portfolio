@@ -2,7 +2,7 @@
 
 import { heroData } from "@/data/hero";
 import { ArrowDown } from "lucide-react";
-import { generateCV } from "@/app/lib/generate-cv";
+import { generateCV } from "@/lib/generate-cv";
 import GlassCard from "./ui/GlassCard";
 import { typography } from "@/constants/animations";
 import Image from "next/image";
