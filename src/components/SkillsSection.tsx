@@ -1,6 +1,6 @@
 "use client";
 
-import { skills, skillsData } from "@/data/skills";
+import { skillsData } from "@/data/skills";
 import Section from "./Section";
 import GlassCard from "./ui/GlassCard";
 import FadeIn from "./ui/FadeIn";

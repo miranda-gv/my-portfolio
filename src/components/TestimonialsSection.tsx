@@ -78,16 +78,16 @@ export default function TestimonialsSection() {
   };
 
   /** Navigates to the next frame with forward direction */
-  const next = () => {
+  const next = useCallback(() => {
     setDirection(1);
     setCurrentFrame((prev) => (prev + 1) % totalFrames);
-  };
+  }, [setDirection, setCurrentFrame, totalFrames]);
 
   /** Navigates to the previous frame with backward direction */
-  const prev = () => {
+  const prev = useCallback(() => {
     setDirection(-1);
     setCurrentFrame((prev) => (prev - 1 + totalFrames) % totalFrames);
-  };
+  }, [setDirection, setCurrentFrame, totalFrames]);
 
   /** Jumps to a specific frame with appropriate direction */
   const goToFrame = (frame: number) => {
