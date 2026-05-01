@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import StructuredData from "@/components/StructuredData";
 
 /**
  * Google Fonts configuration for the portfolio
@@ -96,6 +97,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`h-full antialiased ${spaceGrotesk.variable} ${plusJakarta.variable} ${dmSans.variable}`}>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <GoogleAnalytics />
+        <StructuredData />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-background focus:rounded-lg" tabIndex={0}>
           Skip to main content
         </a>
