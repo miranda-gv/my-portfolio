@@ -6,6 +6,9 @@
  */
 export const footerData = {
   copyright: {
-    text: "Built with Next.js & Tailwind CSS",
+    lines: [
+      "Designed and Developed By Miranda George.",
+      "Built with Next.js & Tailwind CSS"
+    ]
   },
 } as const;
