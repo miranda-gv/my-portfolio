@@ -28,10 +28,10 @@ const navTextColor = "text-[rgb(180,180,180)]";
 /** Shared nav link styles matching design spec: gray text with gold underline */
 const navLinkClasses = cn(
   "text-base uppercase tracking-wider font-extrabold transition-colors duration-300 py-2 px-3 relative",
-  "after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-[#D4AF37] after:transition-all after:duration-300 hover:after:w-full",
+  "after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full",
   navTextColor,
-  "hover:text-[#D4AF37]",
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-sm"
+  "hover:text-primary",
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-sm"
 );
 
 export default function Navbar() {
@@ -59,7 +59,7 @@ export default function Navbar() {
       )}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between h-16" aria-label="Main navigation">
-          <Link href="#" className={cn("text-2xl font-bold transition-colors hover:text-[#D4AF37] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-sm", navTextColor)} aria-label={`${siteConfig.name} - Home`}>
+          <Link href="#" className={cn("text-2xl font-bold transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-sm", navTextColor)} aria-label={`${siteConfig.name} - Home`}>
           {siteConfig.name}
         </Link>
 

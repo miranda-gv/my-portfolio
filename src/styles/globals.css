@@ -3,12 +3,12 @@
 @theme inline {
   --color-background: #0a0a0f;
   --color-foreground: #ffffff;
-  --color-primary: #D4AF37;
+  --color-primary: #C5A059;
   --color-primary-foreground: #0a0a0f;
-  --color-primary-glow: rgba(212, 175, 55, 0.3);
-  --color-secondary: #C9A961;
+  --color-primary-glow: 197, 160, 89;
+  --color-secondary: #A68B3C;
   --color-secondary-foreground: #ffffff;
-  --color-accent: #FFD700;
+  --color-accent: #C5A059;
   --color-accent-foreground: #0a0a0f;
   --color-muted: rgba(255, 255, 255, 0.05);
   --color-muted-foreground: #b4b4b4;
@@ -41,7 +41,7 @@
 
 @utility timeline-line {
   background: linear-gradient(180deg, transparent, var(--color-primary), transparent);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 20px rgba(var(--color-primary-glow), 0.5);
 }
 
 @utility glass-base {

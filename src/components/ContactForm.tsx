@@ -91,7 +91,7 @@ export default function ContactForm() {
             ? "bg-green-500/20 text-green-400"
             : status === "error"
             ? "bg-destructive/20 text-destructive"
-            : "bg-gradient-to-br from-[#D4AF37] to-[#C9A961] text-[#0A0A0F] shadow-[0_4px_15px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.5)]"
+            : "bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-[0_4px_15px_rgba(197,160,89,0.3)] hover:shadow-[0_6px_20px_rgba(197,160,89,0.5)]"
         )}
       >
         {status === "sending" ? (

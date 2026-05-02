@@ -34,7 +34,7 @@ export default function ExperienceItem({ experience: exp, index }: ExperienceIte
       <div
         className="absolute left-3 md:left-1/2 w-4 h-4 rounded-full -translate-x-[7px] md:-translate-x-1/2 bg-primary"
         style={{
-          boxShadow: '0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.2)',
+          boxShadow: '0 0 20px rgba(var(--color-primary-glow), 0.3), 0 0 40px rgba(var(--color-primary-glow), 0.2)',
           top: '1.5rem',
         }}
       />
@@ -45,7 +45,7 @@ export default function ExperienceItem({ experience: exp, index }: ExperienceIte
         <div className={`mb-3 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} leading-tight`}>
           <span
             className="inline-block px-3 py-1 rounded-full text-sm"
-            style={{ background: 'rgba(212, 175, 55, 0.3)', color: 'hsl(var(--primary))' }}
+            style={{ background: 'rgba(var(--color-primary-glow), 0.3)', color: 'hsl(var(--primary))' }}
           >
             {exp.dates}
           </span>
