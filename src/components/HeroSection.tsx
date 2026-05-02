@@ -35,7 +35,7 @@ export default function HeroSection() {
       className="min-h-screen flex items-center relative overflow-hidden bg-background"
     >
       <div className="container mx-auto px-6 py-32 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-right">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             ``
             <div className="mb-6 inline-block">

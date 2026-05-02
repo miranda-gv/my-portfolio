@@ -42,7 +42,7 @@ export default function ContactSection() {
   return (
     <Section id="contact" heading={heading} subheading={subheading} maxWidth="4xl">
       <GlassCard variant="base" className="p-6 md:p-8 rounded-2xl">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-12">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Compact Contact Form - Left */}
           <div>
             <h3 className="font-heading text-lg mb-4 text-foreground">Send Message</h3>
