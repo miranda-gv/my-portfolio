@@ -4,18 +4,35 @@
   --color-background: #0a0a0f;
   --color-foreground: #ffffff;
   --color-primary: #D4AF37;
+  --color-primary-foreground: #0a0a0f;
   --color-primary-glow: rgba(212, 175, 55, 0.3);
   --color-secondary: #C9A961;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #FFD700;
+  --color-accent-foreground: #0a0a0f;
   --color-muted: rgba(255, 255, 255, 0.05);
   --color-muted-foreground: #b4b4b4;
   --color-card: rgba(255, 255, 255, 0.05);
   --color-card-foreground: #ffffff;
+  --color-popover: rgba(255, 255, 255, 0.05);
+  --color-popover-foreground: #ffffff;
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+  --color-glass-bg-strong: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(255, 255, 255, 0.18);
   --color-border: rgba(255, 255, 255, 0.18);
+  --color-input: rgba(255, 255, 255, 0.18);
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-ring: var(--color-primary);
   --radius: 0.625rem;
   --font-heading: var(--font-space-grotesk), var(--font-plus-jakarta), var(--font-dm-sans), serif;
   --font-sans: var(--font-dm-sans), var(--font-plus-jakarta), var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-dm-sans), monospace;
   --text-sm: 0.95rem;
   --leading-tight: 1.25rem;
+  --shadow-glass: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --blur-glass: 20px;
 }
 
 @utility glass-gradient {
@@ -28,9 +45,36 @@
 }
 
 @utility glass-base {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility glass-strong {
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility glass-card {
+  border-radius: var(--radius);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility glass-card-strong {
+  border-radius: var(--radius);
+  background: var(--color-glass-bg-strong);
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility glass-pill {
+  border-radius: 9999px;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--color-glass-border);
 }
 
 @layer base {
@@ -41,6 +85,9 @@
     @apply outline-2 outline-offset-2 outline-primary;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
 }
