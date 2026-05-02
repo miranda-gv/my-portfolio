@@ -50,7 +50,7 @@ interface ThemeDefinition {
 
 export const themes: Record<ThemeName, ThemeDefinition> = {
   gold: {
-    name: "Metallic Gold",
+    name: "Gold",
     colors: {
       background: "#0a0a0f",
       foreground: "#ffffff",
@@ -120,12 +120,12 @@ export const themes: Record<ThemeName, ThemeDefinition> = {
     colors: {
       background: "#0f0a0f",
       foreground: "#ffffff",
-      primary: "#f43f5e",
+      primary: "#B76E79",
       primaryForeground: "#0f0a0f",
-      primaryGlow: "244, 63, 94",
-      secondary: "#e11d48",
-      secondaryForeground: "#ffffff",
-      accent: "#f43f5e",
+      primaryGlow: "183, 110, 121",
+      secondary: "#E8B4A2",
+      secondaryForeground: "#0f0a0f",
+      accent: "#B76E79",
       accentForeground: "#0f0a0f",
       muted: "rgba(255, 255, 255, 0.05)",
       mutedForeground: "#b4b4b4",
