@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import StructuredData from "@/components/StructuredData";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { themes, activeTheme } from "@/config/themes";
 
 /**
  * Google Fonts configuration for the portfolio
@@ -30,6 +32,36 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-dm-sans",
 });
+
+/** Generate CSS custom properties from active theme */
+const theme = themes[activeTheme];
+const themeStyles = {
+  "--theme-background": theme.colors.background,
+  "--theme-foreground": theme.colors.foreground,
+  "--theme-primary": theme.colors.primary,
+  "--theme-primary-foreground": theme.colors.primaryForeground,
+  "--theme-primary-glow": theme.colors.primaryGlow,
+  "--theme-secondary": theme.colors.secondary,
+  "--theme-secondary-foreground": theme.colors.secondaryForeground,
+  "--theme-accent": theme.colors.accent,
+  "--theme-accent-foreground": theme.colors.accentForeground,
+  "--theme-muted": theme.colors.muted,
+  "--theme-muted-foreground": theme.colors.mutedForeground,
+  "--theme-card": theme.colors.card,
+  "--theme-card-foreground": theme.colors.cardForeground,
+  "--theme-popover": theme.colors.popover,
+  "--theme-popover-foreground": theme.colors.popoverForeground,
+  "--theme-glass-bg": theme.colors.glassBg,
+  "--theme-glass-bg-strong": theme.colors.glassBgStrong,
+  "--theme-glass-border": theme.colors.glassBorder,
+  "--theme-border": theme.colors.border,
+  "--theme-input": theme.colors.input,
+  "--theme-destructive": theme.colors.destructive,
+  "--theme-destructive-foreground": theme.colors.destructiveForeground,
+  "--theme-font-heading": theme.fonts.heading,
+  "--theme-font-sans": theme.fonts.sans,
+  "--theme-font-mono": theme.fonts.mono,
+} as React.CSSProperties;
 
 /**
  * Root layout metadata configuration
@@ -94,7 +126,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`h-full antialiased ${spaceGrotesk.variable} ${plusJakarta.variable} ${dmSans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`h-full antialiased ${spaceGrotesk.variable} ${plusJakarta.variable} ${dmSans.variable}`} style={themeStyles}>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <GoogleAnalytics />
         <StructuredData />
@@ -106,6 +138,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ThemeSwitcher />
       </body>
     </html>
   );

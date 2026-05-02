@@ -65,7 +65,7 @@ export default function HeroSection() {
 
                 <button
                   onClick={handleCVDownload}
-                  className="px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-foreground glass-base border border-white/20 hover:border-primary hover:shadow-[0_4px_15px_rgba(212,175,55,0.3)] font-bold uppercase tracking-wider"
+                  className="px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-foreground glass-base border border-white/20 hover:border-primary hover:shadow-[0_4px_15px_rgba(var(--color-primary-glow),0.3)] font-bold uppercase tracking-wider"
                 >
                   DOWNLOAD CV
                 </button>

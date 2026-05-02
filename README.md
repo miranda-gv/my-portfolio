@@ -68,7 +68,7 @@ src/
 **Theme**: Modern Glassmorphism
 
 - Translucent cards with `backdrop-blur-md` and white/20 borders
-- Primary accent: Gold (`#FFD700`)
+- Primary accent: Metallic Gold (`#C5A059`)
 - Dark/neutral backgrounds for contrast
 - Fluid, organic "liquid" shapes with soft motion
 

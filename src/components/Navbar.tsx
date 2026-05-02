@@ -23,7 +23,7 @@ import Link from "next/link";
  * @returns Fixed navigation header with responsive menu
  */
 /** Design system colors - DRY */
-const navTextColor = "text-[rgb(180,180,180)]";
+const navTextColor = "text-muted-foreground";
 
 /** Shared nav link styles matching design spec: gray text with gold underline */
 const navLinkClasses = cn(
