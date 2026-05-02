@@ -6,6 +6,9 @@ import GlassCard from "./ui/GlassCard";
 import FadeIn from "./ui/FadeIn";
 import { hoverPopSubtle } from "@/constants/animations";
 
+/** Skill tag classes with hover states */
+const skillTagClasses = "px-3 py-1.5 rounded-lg text-sm transition-all duration-300 cursor-default bg-white/5 backdrop-blur-md border border-white/20 text-muted-foreground hover:bg-primary/30 hover:text-primary hover:border-primary";
+
 /**
  * Skills Section - Client Component
  *
@@ -45,8 +48,8 @@ export default function SkillsSection() {
                   {skillGroup.items.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1.5 rounded-lg text-sm transition-all duration-300 cursor-default bg-white/5 backdrop-blur-md border border-white/20 text-muted-foreground hover:bg-primary/30 hover:text-primary hover:border-primary"
-                    >
+                       className={skillTagClasses}
+                     >
                       {skill}
                     </span>
                   ))}

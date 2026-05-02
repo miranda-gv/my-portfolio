@@ -13,6 +13,13 @@ import { typography, hoverPopSubtle } from "@/constants/animations";
 
 const { frameTiers, defaultPerFrame } = testimonialConfig;
 
+/** Returns grid column class based on number of testimonials in frame */
+const getGridClass = (count: number) => {
+  if (count === 1) return 'md:grid-cols-1 max-w-2xl mx-auto';
+  if (count === 2) return 'md:grid-cols-2';
+  return 'md:grid-cols-3';
+};
+
 /**
  * Builds testimonial frames based on configuration tiers
  *
@@ -132,7 +139,7 @@ export default function TestimonialsSection() {
                  animate={{ opacity: 1, x: 0 }}
                  exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
                  transition={{ duration: 0.3 }}
-                 className={`grid gap-6 ${frames[currentFrame].length === 1 ? 'md:grid-cols-1 max-w-2xl mx-auto' : frames[currentFrame].length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}
+                  className={`grid gap-6 ${getGridClass(frames[currentFrame].length)}`}
                  role="tabpanel"
                  aria-label={`Testimonials ${getFrameIndices().start + 1}-${getFrameIndices().end} of ${testimonials.length}`}
                >

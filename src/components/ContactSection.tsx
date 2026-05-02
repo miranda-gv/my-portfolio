@@ -16,6 +16,9 @@ const iconMap = {
   MapPin: <MapPin className="w-4 h-4" />,
 };
 
+/** Contact icon link classes */
+const contactIconClasses = "w-9 h-9 rounded-full flex items-center justify-center bg-white/5 backdrop-blur-md border border-white/20 hover:border-primary/50 transition-all duration-300";
+
 /**
  * Contact Section - Client Component
  *
@@ -50,20 +53,20 @@ export default function ContactSection() {
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-4 mb-6">
               {/* Email - Icon only, clickable */}
-              <a
-                href={`mailto:${emailAddress}`}
-                className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 backdrop-blur-md border border-white/20 hover:border-primary/50 transition-all duration-300"
-                aria-label="Email Miranda"
-              >
-                <span className="text-primary">{iconMap.Mail}</span>
-              </a>
+               <a
+                 href={`mailto:${emailAddress}`}
+                 className={contactIconClasses}
+                 aria-label="Email Miranda"
+               >
+                 <span className="text-primary">{iconMap.Mail}</span>
+               </a>
 
-              {/* Phone - Icon only, clickable */}
-              <a
-                href={`tel:${phoneNumber}`}
-                className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 backdrop-blur-md border border-white/20 hover:border-primary/50 transition-all duration-300"
-                aria-label="Call Miranda"
-              >
+               {/* Phone - Icon only, clickable */}
+               <a
+                 href={`tel:${phoneNumber}`}
+                 className={contactIconClasses}
+                 aria-label="Call Miranda"
+               >
                 <span className="text-primary">{iconMap.Phone}</span>
               </a>
 

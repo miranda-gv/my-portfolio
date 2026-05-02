@@ -5,6 +5,9 @@ import Section from "./Section";
 import GlassCard from "./ui/GlassCard";
 import { typography } from "@/constants/animations";
 
+/** Highlight icon container classes */
+const highlightIconClasses = "w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-primary/20 text-primary text-2xl";
+
 /**
  * About Section - Client Component
  *
@@ -36,9 +39,9 @@ export default function AboutSection() {
             <div className="grid md:grid-cols-3 gap-6 mt-8">
                {highlights.map((item) => (
                  <div key={item.title} className="text-center">
-                   <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-primary/20 text-primary text-2xl">
-                     {item.icon}
-                   </div>
+                    <div className={highlightIconClasses}>
+                      {item.icon}
+                    </div>
                    <h3 className="mb-2 text-foreground text-xl">{item.title}</h3>
                    <p className="text-muted-foreground text-sm">{item.desc}</p>
                  </div>
