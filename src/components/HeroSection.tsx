@@ -37,7 +37,6 @@ export default function HeroSection() {
       <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            ``
             <div className="mb-6 inline-block">
               <GlassCard
                 variant="pill"
