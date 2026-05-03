@@ -173,13 +173,13 @@ export default function TestimonialsSection() {
             </AnimatePresence>
 
             <div className="flex justify-center items-center gap-4 mt-8">
-              <button
-                onClick={prev}
-                className={`p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`}
-                aria-label="Previous testimonials"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
+               <button
+                 onClick={prev}
+                 className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`}
+                 aria-label="Previous testimonials"
+               >
+                 <ChevronLeft className="w-5 h-5" />
+               </button>
 
               <div className="flex gap-2" role="tablist" aria-label="Testimonial pages">
                 {[...Array(totalFrames)].map((_, i) => (
@@ -196,13 +196,13 @@ export default function TestimonialsSection() {
                 ))}
               </div>
 
-              <button
-                onClick={next}
-                className={`p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`}
-                aria-label="Next testimonials"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
+               <button
+                 onClick={next}
+                 className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`}
+                 aria-label="Next testimonials"
+               >
+                 <ChevronRight className="w-5 h-5" />
+               </button>
               </div>
             </div>
       </Section>
