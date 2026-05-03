@@ -34,18 +34,20 @@ export default function ClientsSection() {
               key={client.name}
               delay={index * 0.05}
             >
-               <GlassCard variant="cardStrong" className={`p-4 ${hoverPop}`}>
-                   <div className="relative h-12 md:h-16 w-full flex items-center justify-center">
-                     <Image
-                        src={client.logoSrc}
-                        alt={client.name}
-                        width={LOGO_WIDTH}
-                        height={LOGO_HEIGHT}
-                        className="object-contain"
-                        style={{ width: 'auto', height: '100%' }}
-                      />
-                   </div>
-                </GlassCard>
+               <a href={client.url} target="_blank" rel="noopener noreferrer" className="block">
+                 <GlassCard variant="cardStrong" className={`p-4 ${hoverPop}`}>
+                     <div className="relative h-12 md:h-16 w-full flex items-center justify-center">
+                       <Image
+                          src={client.logoSrc}
+                          alt={client.name}
+                          width={LOGO_WIDTH}
+                          height={LOGO_HEIGHT}
+                          className="object-contain"
+                          style={{ width: 'auto', height: '100%' }}
+                        />
+                     </div>
+                  </GlassCard>
+               </a>
             </FadeIn>
           ))}
         </div>
