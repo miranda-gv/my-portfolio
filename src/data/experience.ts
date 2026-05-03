@@ -25,6 +25,19 @@ export const experienceData = {
   heading: "EXPERIENCE",
   items: [
     {
+      company: "DashWright",
+      title: "Web Developer & QA Architect",
+      dates: "2025 - Present",
+      location: "Remote",
+      responsibilities: [
+        "Architected and shipped DashWright, a full-stack visualization engine built with Next.js and TypeScript to aggregate and transform Playwright test artifacts into interactive stakeholder dashboards.",
+        'Engineered high-fidelity, dark-themed web applications using React and Tailwind CSS, focusing on performance optimization and modern "Glassmorphism" UI/UX design.',
+        "Led a legacy-to-modern migration, converting older Express/EJS projects into SEO-optimized Next.js environments hosted on Vercel and Railway.",
+        'Spearheaded Playwright automation suites that integrate directly into the dev workflow via GitHub Actions, achieving a "Shift-Left" testing culture.',
+        "Designed accessible and responsive interfaces (Section 508 compliance) while managing the full defect lifecycle from root cause analysis to final closure.",
+      ],
+    },
+    {
       company: "SmartBug Media",
       title: "Sr. QA Specialist",
       dates: "2015 - Present",
