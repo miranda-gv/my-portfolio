@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import jsPDF from "jspdf";
 import { heroData } from "@/data/hero";
-import { introData } from "@/data/intro";
+import { aboutData } from "@/data/about";
 import { experience } from "@/data/experience";
 import { skills } from "@/data/skills";
 import { testimonials } from "@/data/testimonials";
@@ -61,10 +61,14 @@ export async function GET() {
 
   doc.setFontSize(10);
   doc.text(
-    [cleanText(emailAddress), cleanText(phoneNumber), cleanText(contactData.location)],
+    [
+      cleanText(emailAddress),
+      cleanText(phoneNumber),
+      cleanText(contactData.location),
+    ],
     pageWidth / 2,
     y,
-    { align: "center" }
+    { align: "center" },
   );
   y += 15;
 
@@ -74,9 +78,9 @@ export async function GET() {
   y += 10;
 
   // Bio/Introduction section
-  if (introData.paragraphs.length > 0) {
+  if (aboutData.paragraphs.length > 0) {
     doc.setFontSize(12);
-    const bioText = introData.paragraphs.join(" ");
+    const bioText = aboutData.paragraphs.join(" ");
     const bioLines = doc.splitTextToSize(cleanText(bioText), contentWidth);
     checkPageBreak(bioLines.length * 5);
     doc.text(bioLines, margin, y);
@@ -96,13 +100,20 @@ export async function GET() {
     doc.text(cleanText(exp.dates), pageWidth - margin, y, { align: "right" });
     y += 6;
 
-    doc.text(cleanText(exp.company) + " | " + cleanText(exp.location), margin, y);
+    doc.text(
+      cleanText(exp.company) + " | " + cleanText(exp.location),
+      margin,
+      y,
+    );
     y += 6;
 
     doc.setFontSize(10);
     exp.responsibilities.forEach((desc: string) => {
       checkPageBreak(5);
-      const lines = doc.splitTextToSize("• " + cleanText(desc), contentWidth - 5);
+      const lines = doc.splitTextToSize(
+        "• " + cleanText(desc),
+        contentWidth - 5,
+      );
       doc.text(lines, margin + 5, y);
       y += lines.length * 5;
     });
@@ -111,24 +122,24 @@ export async function GET() {
 
   y += 5;
 
-   // Skills section - grouped by category
-   checkPageBreak(20);
-   doc.setFontSize(14);
-   doc.text("Skills", margin, y);
-   y += 8;
+  // Skills section - grouped by category
+  checkPageBreak(20);
+  doc.setFontSize(14);
+  doc.text("Skills", margin, y);
+  y += 8;
 
-   doc.setFontSize(10);
-   skills.forEach((skillGroup) => {
-     checkPageBreak(10);
-     doc.setFontSize(11);
-     doc.text(cleanText(skillGroup.category) + ":", margin, y);
-     y += 5;
-     doc.setFontSize(10);
-     const itemsText = skillGroup.items.join(", ");
-     const lines = doc.splitTextToSize(cleanText(itemsText), contentWidth - 5);
-     doc.text(lines, margin + 5, y);
-     y += lines.length * 5 + 3;
-   });
+  doc.setFontSize(10);
+  skills.forEach((skillGroup) => {
+    checkPageBreak(10);
+    doc.setFontSize(11);
+    doc.text(cleanText(skillGroup.category) + ":", margin, y);
+    y += 5;
+    doc.setFontSize(10);
+    const itemsText = skillGroup.items.join(", ");
+    const lines = doc.splitTextToSize(cleanText(itemsText), contentWidth - 5);
+    doc.text(lines, margin + 5, y);
+    y += lines.length * 5 + 3;
+  });
 
   // Testimonials section (top 3)
   if (testimonials && testimonials.length > 0) {
@@ -141,7 +152,10 @@ export async function GET() {
     doc.setFontSize(10);
     testimonials.slice(0, 3).forEach((t) => {
       checkPageBreak(15);
-      const lines = doc.splitTextToSize('"' + cleanText(t.text) + '"', contentWidth);
+      const lines = doc.splitTextToSize(
+        '"' + cleanText(t.text) + '"',
+        contentWidth,
+      );
       doc.text(lines, margin, y);
       y += lines.length * 5 + 3;
       doc.text("- " + cleanText(t.name) + ", " + cleanText(t.title), margin, y);

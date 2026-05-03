@@ -4,7 +4,7 @@
  * Contains biographical information and highlights.
  * Used by AboutSection component to display personal introduction.
  */
-export const introData = {
+export const aboutData = {
   heading: "ABOUT ME",  
   highlights: [
     { icon: '✓', title: 'Quality First', desc: 'Committed to delivering flawless software through rigorous testing' },

@@ -45,7 +45,7 @@ src/
 │   └── ...
 ├── data/                  # Config-driven content (SSG)
 │   ├── hero.ts             # Personal branding
-│   ├── intro.ts            # About section content
+│   ├── about.ts            # About section content
 │   ├── experience.ts       # Work history + interface
 │   ├── skills.ts           # Skills + interface
 │   ├── clients.ts          # Client logos + interface
