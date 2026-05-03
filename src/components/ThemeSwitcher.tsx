@@ -62,7 +62,7 @@ export default function ThemeSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute bottom-14 right-0 flex gap-2 p-2 rounded-lg glass-strong"
+            className="absolute bottom-14 right-0 flex flex-col gap-2 p-2 rounded-lg glass-strong"
           >
             {(Object.keys(themes) as ThemeName[]).map((key) => (
               <button
