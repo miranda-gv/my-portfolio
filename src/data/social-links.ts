@@ -6,13 +6,15 @@
  */
 export const socialLinks = [
   {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/mirandageorge/',
-    shortLabel: 'Li',
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/mirandageorge/",
   },
   {
-    name: 'Facebook',
-    url: 'https://facebook.com/miranda.geov',
-    shortLabel: 'Fb',
+    name: "GitHub",
+    url: "https://github.com/miranda-gv",
+  },
+  {
+    name: "Facebook",
+    url: "https://facebook.com/miranda.geov",
   },
 ] as const;
