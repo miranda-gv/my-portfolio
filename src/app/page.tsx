@@ -1,10 +1,11 @@
 import HeroSection from "@/components/HeroSection";
+import SecondaryNav from "@/components/SecondaryNav";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import PortfolioSection from "@/components/PortfolioSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
 import ClientsSection from "@/components/ClientsSection";
-import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BlogSection from "@/components/BlogSection";
 import ContactSection from "@/components/ContactSection";
@@ -24,12 +25,13 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <SecondaryNav />
       <AboutSection />
       <ServicesSection />
+      <PortfolioSection />
       <ExperienceSection />
       <SkillsSection />
       <ClientsSection />
-      <PortfolioSection />
       <TestimonialsSection />
       <BlogSection />
       <ContactSection />

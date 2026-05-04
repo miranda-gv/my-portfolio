@@ -11,7 +11,7 @@ import StarRating from "./ui/StarRating";
 import { hoverPopSubtle } from "@/constants/animations";
 import { glass } from "@/constants/glass";
 
-const { defaultPerFrame } = testimonialConfig;
+const { frameTiers, defaultPerFrame } = testimonialConfig;
 
 /** Returns grid column class based on number of testimonials in frame */
 const getGridClass = (count: number) => {
@@ -20,12 +20,22 @@ const getGridClass = (count: number) => {
   return 'md:grid-cols-3';
 };
 
-/** Build frames using defaultPerFrame */
+/** Build frames based on tier config (2 per frame for first 8, then 3 per frame) */
 const buildFrames = () => {
   const frames: typeof testimonials[] = [];
-  for (let i = 0; i < testimonials.length; i += defaultPerFrame) {
+  let i = 0;
+
+  for (const tier of frameTiers) {
+    const end = i + tier.count * tier.perFrame;
+    for (; i < end && i < testimonials.length; i += tier.perFrame) {
+      frames.push(testimonials.slice(i, i + tier.perFrame));
+    }
+  }
+
+  for (; i < testimonials.length; i += defaultPerFrame) {
     frames.push(testimonials.slice(i, i + defaultPerFrame));
   }
+
   return frames;
 };
 

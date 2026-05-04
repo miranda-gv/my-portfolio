@@ -99,9 +99,18 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <button
+        onClick={() => {
+          if (typeof window !== 'undefined') {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+          }
+        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce p-3 rounded-full hover:bg-primary/20 transition-all cursor-pointer z-20"
+        aria-label="Scroll to content"
+        type="button"
+      >
         <ArrowDown className="w-6 h-6 text-primary" />
-      </div>
+      </button>
     </section>
   );
 }

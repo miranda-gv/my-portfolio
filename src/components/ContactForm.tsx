@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { contactData } from "@/data/contact";
 
 const inputClasses =
-  "w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-sm transition-colors focus:outline-none focus:border-primary/50";
+  "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-base transition-colors focus:outline-none focus:border-primary/50";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -37,15 +37,15 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-2">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <input type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required className={inputClasses} />
       <input type="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required className={inputClasses} />
-      <textarea name="message" placeholder="Your message..." value={formData.message} onChange={handleChange} required rows={4} className={`${inputClasses} resize-none`} />
+      <textarea name="message" placeholder="Your message..." value={formData.message} onChange={handleChange} required rows={6} className={`${inputClasses} resize-none`} />
       <button
         type="submit"
         disabled={status === "sending"}
         className={cn(
-          "w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]",
+          "w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-lg font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]",
           status === "sent"
             ? "bg-green-500/20 text-green-400"
             : status === "error"
@@ -54,14 +54,14 @@ export default function ContactForm() {
         )}
       >
         {status === "sending" ? (
-          <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+          <span className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
         ) : status === "sent" ? (
-          "Sent!"
+          "Sent! ✓"
         ) : status === "error" ? (
-          "Error"
+          "Error - Try Again"
         ) : (
           <>
-            <Send className="w-3.5 h-3.5" />
+            <Send className="w-4 h-4" />
             {contactData.sendButtonLabel}
           </>
         )}
