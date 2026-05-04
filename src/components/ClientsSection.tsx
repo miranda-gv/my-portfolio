@@ -20,10 +20,10 @@ function LogoItem({ name, url, logoSrc }: LogoItemProps) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block shrink-0 mx-6"
+      className="group block shrink-0 mx-4"
     >
-      <div className="relative h-12 md:h-16 w-[160px] flex items-center justify-center">
-        <div className="absolute inset-0 rounded-xl bg-primary/20 blur-xl opacity-0 scale-150 transition-all duration-300 group-hover:opacity-100" />
+      <div className="relative h-14 md:h-20 w-[140px] flex items-center justify-center">
+        <div className="absolute inset-0 rounded-lg bg-primary/10 blur-md opacity-0 scale-125 transition-all duration-300 group-hover:opacity-100" />
         <Image
           src={logoSrc}
           alt={name}
@@ -41,7 +41,7 @@ export default function ClientsSection() {
   const { heading } = clientsData;
 
   return (
-    <Section id="clients" heading={heading} maxWidth="5xl">
+    <Section id="clients" heading={heading} maxWidth="6xl">
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-background to-transparent" />
