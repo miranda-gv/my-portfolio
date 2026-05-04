@@ -8,7 +8,7 @@
  */
 export const contactData = {
   heading: "GET IN TOUCH",
-  subheading: "Feel free to reach out for opportunities or collaborations",
+  subheading: "I'm always open to discussing new opportunities and partnerships.\nFeel free to reach out!",
   formHeading: "SEND MESSAGE",
   sendButtonLabel: "SEND MESSAGE",
   email: {

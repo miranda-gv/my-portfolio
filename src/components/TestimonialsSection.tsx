@@ -68,7 +68,7 @@ const frames = buildFrames();
  * @returns The testimonials section with interactive carousel
  */
 export default function TestimonialsSection() {
-  const { heading } = testimonialsData;
+  const { heading, subHeading } = testimonialsData;
   const [currentFrame, setCurrentFrame] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -124,7 +124,7 @@ export default function TestimonialsSection() {
   }, [handleKeyDown]);
 
   return (
-    <Section id="testimonials" heading={heading} maxWidth="6xl">
+    <Section id="testimonials" heading={heading} subheading={subHeading} maxWidth="6xl">
           <div
             ref={sectionRef}
             className="relative"

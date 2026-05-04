@@ -9,8 +9,8 @@ interface SectionProps {
   id: string;
   /** Optional section heading text */
   heading?: string;
-  /** Optional subheading text below heading */
-  subheading?: string;
+  /** Optional subheading text below heading (supports ReactNode for line breaks) */
+  subheading?: ReactNode;
   /** Max width preset (2xl-7xl) or custom value */
   maxWidth?: string;
   /** Additional CSS classes for heading */
@@ -75,7 +75,12 @@ export default function Section({
               className="text-center mb-12 text-muted-foreground"
               style={typography.body}
             >
-              {subheading}
+              {typeof subheading === 'string' ? subheading.split('\n').map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i < subheading.split('\n').length - 1 && <br />}
+                </span>
+              )) : subheading}
             </p>
           )}
 

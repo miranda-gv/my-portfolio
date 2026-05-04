@@ -25,15 +25,17 @@ export interface Testimonial {
  */
 export const testimonialsData = {
   heading: "TESTIMONIALS",
+  subHeading: "What colleagues and clients say about working with me",
   items: [] as Testimonial[],
 };
 
-export const testimonials: Testimonial[] = testimonialsData.items = [
+export const testimonials: Testimonial[] = (testimonialsData.items = [
   {
     name: "Alen Čapelja",
     title: "Founder at dellik | former E-Commerce SDM, SME at SmartBug Media",
     date: "July 29, 2023",
-    relationship: "Alen was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Alen was senior to Miranda but didn't manage Miranda directly",
     text: "It is my pleasure to wholeheartedly recommend Miranda for her exceptional expertise as a QA Analyst. Her skill set spans manual and automation testing, digital marketing QA, and website QA, making her an invaluable asset to any team. Miranda's technical proficiency is unmatched, and her meticulous approach to manual testing has uncovered critical defects, enhancing product quality and user experience. She has also been instrumental in implementing automated testing, optimizing efficiency and meeting tight deadlines. Apart from technical excellence, Miranda is an approachable team player who communicates effectively across departments. Her adaptability further strengthens the team dynamic. In summary, Miranda is a standout professional with a versatile skill set and a positive attitude. I highly recommend her for any QA-related role.",
     rating: 5,
   },
@@ -49,7 +51,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Jennifer Huyenh-Cho",
     title: "Senior Director, Program Management at SmartBug Media",
     date: "August 18, 2023",
-    relationship: "Jennifer was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Jennifer was senior to Miranda but didn't manage Miranda directly",
     text: "Miranda is an outstanding professional. I've worked with Miranda closely in both an individual contributor and leadership role. I've had the pleasure of working with Miranda on projects and seeing her expertise shine through in ensuring our end products we're always top notch. I've also had the pleasure of seeing Miranda grow and succeed a leadership role. Miranda has not only achieved excellence in her expertise but also in her leadership and management of others. Consistently Miranda seeks constructive feedback and improvements, she strives to identify new opportunities to grow herself and team. Her tenacity for improvement and reach for excellence raises the bar of all products we produced. What sets Miranda apart is not only her success and leadership skills but also her passion for people. She treats others as she'd like to be treated, she's clear and direct with feedback and pushes her team to grow. She brings passion and quality to everything she does. I'm so excited to see where Miranda takes her career, she is an asset to any organization.",
     rating: 5,
   },
@@ -57,13 +60,15 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Jen Spencer",
     title: "Former CEO of SmartBug, HubSpot Elite Solutions Partner",
     date: "July 25, 2023",
-    relationship: "Jen was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Jen was senior to Miranda but didn't manage Miranda directly",
     text: "During her tenure at SmartBug, Miranda demonstrated remarkable expertise and dedication in implementing and maintaining the QA process across all projects. Her efforts resulted in an impressive 99.9% success rate for production, showcasing her ability to optimize efficiency and minimize QA issues. Miranda's leadership skills were evident as she established comprehensive training and onboarding programs for new QA team members, ensuring seamless project integration and knowledge transfer. Moreover, her effective collaboration with the development team allowed for proactive identification and resolution of potential issues during the development process, leading to expedited bug fixes and streamlined project timelines. Miranda's dedication, skills, and ability to inspire others make her an invaluable asset to any organization.",
     rating: 5,
   },
   {
     name: "John Suarez",
-    title: "Director of Client Services | Revenue-Driven Marketer | AI Power User",
+    title:
+      "Director of Client Services | Revenue-Driven Marketer | AI Power User",
     date: "August 3, 2023",
     relationship: "John worked with Miranda but on different teams",
     text: "I had the pleasure of working with Miranda and I can confidently say that she is one of the most dedicated and detail-oriented professionals I've worked with. Her ability to communicate effectively, both in terms of articulating their own ideas and understanding others, is very strong. Miranda's attention to detail is also exceptional - she has an innate ability to spot the smallest inconsistencies or errors, ensuring the wider team is aware so that the final output is always of the highest quality. But what sets Miranda apart is not just her professional skills, but also her positive attitude and team spirit. She's a delight to work with - always bringing a positive energy to the team, and inspiring others with her passion and dedication. I wholeheartedly recommend Miranda for any team that values communication, attention to detail, and a positive work environment. I have no doubt that she will continue to excel in their future endeavors.",
@@ -79,7 +84,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
   },
   {
     name: "Tim Schwartz",
-    title: "Digital Transformation | Business Operations | Technology Enablement",
+    title:
+      "Digital Transformation | Business Operations | Technology Enablement",
     date: "August 2, 2023",
     relationship: "Tim managed Miranda directly",
     text: "Miranda set a high standard for QA at SmartBug Media. She has a steadfast focus on continuous improvement and that is reflected in how she has refined QA processes. Her efforts have resulted in bringing greater efficiency to the team while minimizing lost launch QA issues. She is a joy to work with and collaborates well with the development team. She is proactive and vocal in identifying and addressing issues in the development process and that regularly results in a cost savings for the organization. Most impressively, Miranda developed a comprehensive training program for new QA team members to accelerate the onboarding process. I am confident that her experience at SmartBug Media has set her up to contribute valuable insight wherever she goes.",
@@ -169,7 +175,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Vivian Lumbley",
     title: "Web Development Manager",
     date: "March 30, 2022",
-    relationship: "Vivian was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Vivian was senior to Miranda but didn't manage Miranda directly",
     text: "I cannot recommend Miranda more! Miranda is one of the most thorough QA specialists I have ever worked with, and her attention to details is impeccable. She adapts to the ever-changing agency world extremely well, yet stays true to her technical processes and improve upon them. She is one of those truly loves QA and her passion shows through her work. As a bonus, she is also one of the warmest persons and I love her as a colleague and as a friend! I would jump on any chance to work with Miranda!",
     rating: 5,
   },
@@ -186,7 +193,7 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     title: "Sr. Marketing Campaign Ops Manager at Waystar",
     date: "July 30, 2023",
     relationship: "Joe worked with Miranda but on different teams",
-    text: "Whenever I had a project assigned to Miranda, I knew I was in good hands. She is incredibly detailed and thorough and skillful in her project execution. Sometimes in my current role and when I see a web page just browsing the Internet I think \"goodness, Miranda would never have let this page slide.\" Any organization would do well to have her onboard.",
+    text: 'Whenever I had a project assigned to Miranda, I knew I was in good hands. She is incredibly detailed and thorough and skillful in her project execution. Sometimes in my current role and when I see a web page just browsing the Internet I think "goodness, Miranda would never have let this page slide." Any organization would do well to have her onboard.',
     rating: 5,
   },
   {
@@ -241,7 +248,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Brent Worley",
     title: "Technical Leader | Software Development Manager",
     date: "July 30, 2023",
-    relationship: "Brent was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Brent was senior to Miranda but didn't manage Miranda directly",
     text: "Miranda is a thorough, meticulous Quality Assurance guru. She led her team to focus on accurate projects reaching the hands of our clients.",
     rating: 5,
   },
@@ -249,7 +257,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Ali Orlando Wert",
     title: "Content Marketing Strategist & Speaker",
     date: "July 29, 2023",
-    relationship: "Ali was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Ali was senior to Miranda but didn't manage Miranda directly",
     text: "Miranda is an amazingly detailed QA manager - I was always happy when Miranda was on a project, because I knew she would make sure everything was done carefully and correctly. She is also a great teammate and pleasure to work with. I would highly recommend Miranda!",
     rating: 5,
   },
@@ -273,7 +282,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Aaron Riddle",
     title: "Project Manager",
     date: "December 22, 2020",
-    relationship: "Aaron was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Aaron was senior to Miranda but didn't manage Miranda directly",
     text: "Working with Miranda over a span of almost 5 years, there was never a challenge or timeline that she wasn't able to complete. Her willingness to keep up with web development best practices, browsers and their associated support windows and her attention to detail made her a valuable asset to the web team at SmartBug.",
     rating: 5,
   },
@@ -281,7 +291,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Annapoorani Sivakumar",
     title: "Quality Engineer at Service Now",
     date: "March 3, 2016",
-    relationship: "Miranda was senior to Annapoorani but didn't manage directly",
+    relationship:
+      "Miranda was senior to Annapoorani but didn't manage directly",
     text: "Miranda is a very dedicated and knowledgeable professional. She has proven to be highly reliable, easy to work with, and very organized. We worked at Orbitz, she was my onsite lead, I would recommend her as one of the top QA engineers I have worked with.",
     rating: 5,
   },
@@ -305,7 +316,8 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     name: "Sujith John Kuriakose",
     title: "Senior Director",
     date: "August 25, 2009",
-    relationship: "Sujith John was senior to Miranda but didn't manage Miranda directly",
+    relationship:
+      "Sujith John was senior to Miranda but didn't manage Miranda directly",
     text: "Miranda has a great personality and winning attitude which allows her to establish deep rooted relationships with her collegues and business partners. She is an extremely dedicated professional who always puts in the extra effort required to find answers and resolve issues. She learns very quickly and is able to take on new tasks with a minimum of startup time. She is always available to assist in any situation. She is a true asset to anyone who works with her.",
     rating: 5,
   },
@@ -325,4 +337,4 @@ export const testimonials: Testimonial[] = testimonialsData.items = [
     text: "Miranda is fantastic in QA and testing. She is reliable and a pleasure to work with!",
     rating: 5,
   },
-];
+]);
