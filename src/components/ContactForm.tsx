@@ -5,31 +5,14 @@ import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { contactData } from "@/data/contact";
 
-/**
- * Contact Form Component - Client Component
- *
- * A compact, modern contact form with:
- * - Name, email, and message fields
- * - Client-side validation
- * - Submits via API route to send email using Resend
- * - Glassmorphism styling consistent with design system
- *
- * @returns A compact contact form with modern UI
- *
- * @example
- * <ContactForm />
- */
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState("idle");
+const inputClasses =
+  "w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-sm transition-colors focus:outline-none focus:border-primary/50";
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+export default function ContactForm() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -37,16 +20,13 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-
     try {
-      const response = await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
-      if (!response.ok) throw new Error("Failed to send");
-
+      if (!res.ok) throw new Error();
       setStatus("sent");
       setFormData({ name: "", email: "", message: "" });
       setTimeout(() => setStatus("idle"), 3000);
@@ -58,43 +38,19 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-2">
-      <input
-        type="text"
-        name="name"
-        placeholder="Your name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-sm transition-colors focus:outline-none focus:border-primary/50"
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="your@email.com"
-        value={formData.email}
-        onChange={handleChange}
-        required
-        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-sm transition-colors focus:outline-none focus:border-primary/50"
-      />
-      <textarea
-        name="message"
-        placeholder="Your message..."
-        value={formData.message}
-        onChange={handleChange}
-        required
-        rows={4}
-        className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-sm transition-colors focus:outline-none focus:border-primary/50 resize-none"
-      />
+      <input type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required className={inputClasses} />
+      <input type="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required className={inputClasses} />
+      <textarea name="message" placeholder="Your message..." value={formData.message} onChange={handleChange} required rows={4} className={`${inputClasses} resize-none`} />
       <button
         type="submit"
         disabled={status === "sending"}
         className={cn(
-          "w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-bold uppercase tracking-wider transition-all duration-300 transform hover:scale-[1.02]",
+          "w-full flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]",
           status === "sent"
             ? "bg-green-500/20 text-green-400"
             : status === "error"
               ? "bg-destructive/20 text-destructive"
-              : "bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(var(--color-primary-glow),0.3)] hover:shadow-[0_6px_20px_rgba(var(--color-primary-glow),0.5)]",
+              : "bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(var(--color-primary-glow),0.3)] hover:shadow-[0_6px_20px_rgba(var(--color-primary-glow),0.5)]"
         )}
       >
         {status === "sending" ? (
