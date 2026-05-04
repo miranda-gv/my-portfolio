@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { contactData } from "@/data/contact";
 
 /**
  * Contact Form Component - Client Component
@@ -26,7 +27,9 @@ export default function ContactForm() {
   });
   const [status, setStatus] = useState("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -90,8 +93,8 @@ export default function ContactForm() {
           status === "sent"
             ? "bg-green-500/20 text-green-400"
             : status === "error"
-            ? "bg-destructive/20 text-destructive"
-            : "bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-[0_4px_15px_rgba(var(--color-primary-glow),0.3)] hover:shadow-[0_6px_20px_rgba(var(--color-primary-glow),0.5)]"
+              ? "bg-destructive/20 text-destructive"
+              : "bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(var(--color-primary-glow),0.3)] hover:shadow-[0_6px_20px_rgba(var(--color-primary-glow),0.5)]",
         )}
       >
         {status === "sending" ? (
@@ -101,10 +104,10 @@ export default function ContactForm() {
         ) : status === "error" ? (
           "Error"
         ) : (
-            <>
-              <Send className="w-3.5 h-3.5" />
-              Send Message
-            </>
+          <>
+            <Send className="w-3.5 h-3.5" />
+            {contactData.sendButtonLabel}
+          </>
         )}
       </button>
     </form>

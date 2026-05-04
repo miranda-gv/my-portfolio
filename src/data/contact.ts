@@ -9,6 +9,8 @@
 export const contactData = {
   heading: "GET IN TOUCH",
   subheading: "Feel free to reach out for opportunities or collaborations",
+  formHeading: "SEND MESSAGE",
+  sendButtonLabel: "SEND MESSAGE",
   email: {
     user: "miranda.wqa",
     domain: "gmail.com",
