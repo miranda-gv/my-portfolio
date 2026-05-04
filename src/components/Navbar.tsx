@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -30,6 +31,7 @@ const navLinkClasses = cn(
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -53,13 +55,24 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-1" role="list">
-          {navLinks.map((link) => (
-            <li key={link.href} role="listitem">
-              <Link href={link.href} className={navLinkClasses} tabIndex={0}>
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.href} role="listitem">
+                <Link
+                  href={link.href}
+                  className={cn(
+                    navLinkClasses,
+                    isActive && "text-primary after:w-full"
+                  )}
+                  tabIndex={0}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
           <li role="listitem" className="ml-2">
             <Link href="#contact" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all text-sm font-medium" tabIndex={0}>
               <Mail className="w-4 h-4" />
@@ -80,13 +93,25 @@ export default function Navbar() {
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-background/95 backdrop-blur-md border-t overflow-hidden">
             <ul className="flex flex-col py-4 px-4 gap-1">
               <p className="px-4 py-2 text-xs uppercase tracking-wider text-muted-foreground/60">Pages</p>
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className={cn("block py-2 px-4", navLinkClasses)} onClick={() => setMobileOpen(false)}>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "block py-2 px-4",
+                        navLinkClasses,
+                        isActive && "text-primary after:w-full"
+                      )}
+                      onClick={() => setMobileOpen(false)}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
               <div className="border-t border-white/10 my-2" />
               <li>
                 <Link href="/contact" className="flex items-center gap-2 py-2 px-4 text-primary" onClick={() => setMobileOpen(false)}>
