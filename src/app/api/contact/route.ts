@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     if (!toEmail) {
       return NextResponse.json(
         { error: "Contact email not configured" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
       console.error("Resend error:", error);
       return NextResponse.json(
         { error: "Failed to send email", details: error },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -61,7 +61,7 @@ export async function POST(request: Request) {
     console.error("Contact API error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

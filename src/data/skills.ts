@@ -58,6 +58,18 @@ export const skillsData = {
       ],
     },
     {
+      category: "CMS Platforms",
+      items: [
+        "Drupal 9/10",
+        "WordPress",
+        "HubSpot",
+        "Shopify",
+        "Squarespace",
+        "SharePoint",
+        "Adobe Marketo Engage",
+      ],
+    },
+    {
       category: "Accessibility",
       items: [
         "WCAG",
@@ -87,18 +99,7 @@ export const skillsData = {
       category: "API & Performance",
       items: ["Postman", "REST API", "JMeter", "SQL", "Oracle"],
     },
-    {
-      category: "CMS Platforms",
-      items: [
-        "Drupal 9/10",
-        "WordPress",
-        "HubSpot",
-        "Shopify",
-        "Squarespace",
-        "SharePoint",
-        "Adobe Marketo Engage",
-      ],
-    },
+
     {
       category: "Methodologies",
       items: ["Agile-Scrum", "Kanban", "V-Model", "Waterfall", "CI/CD"],
