@@ -1,4 +1,4 @@
-import { blogPosts, blogData } from "@/data/blog";
+import { blogPosts } from "@/data/blog";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
 import GlassCard from "@/components/ui/GlassCard";

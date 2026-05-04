@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { typography } from "@/constants/animations";
 
 /**
  * Props for the Section component
@@ -62,20 +61,18 @@ export default function Section({
   return (
     <section id={id} className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="mx-auto" style={{ maxWidth: maxWidthMap[maxWidth] || maxWidthMap["4xl"] }}>
+         <div className="mx-auto" style={{ maxWidth: maxWidthMap[maxWidth] || maxWidthMap["4xl"] }}>
           {heading && (
             <h2
-              className={`font-heading mt-12 mb-12 ${headingClassName} text-center text-foreground`}
-              style={typography.heading}
+               className={`font-heading mt-12 mb-12 ${headingClassName} text-center text-foreground text-3xl md:text-4xl`}
             >
               {heading}
             </h2>
           )}
 
           {subheading && (
-            <p
-              className="text-center mb-12 text-muted-foreground"
-              style={typography.body}
+             <p
+              className="text-center mb-12 text-muted-foreground text-lg"
             >
               {typeof subheading === 'string' ? subheading.split('\n').map((line, i) => (
                 <span key={i}>

@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import StructuredData from "@/components/StructuredData";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { themes, activeTheme } from "@/config/themes";
 
 /**
@@ -138,7 +137,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <ThemeSwitcher />
       </body>
     </html>
   );

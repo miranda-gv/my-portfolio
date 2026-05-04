@@ -29,8 +29,7 @@ function LogoItem({ name, url, logoSrc }: LogoItemProps) {
           alt={name}
           width={LOGO_WIDTH}
           height={LOGO_HEIGHT}
-          className="object-contain marquee-logo hover:marquee-logo-hover relative z-10"
-          style={{ width: "auto", height: "100%" }}
+           className="object-contain marquee-logo hover:marquee-logo-hover relative z-10 w-auto h-full"
         />
       </div>
     </a>

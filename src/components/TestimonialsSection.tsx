@@ -9,7 +9,6 @@ import Section from "./Section";
 import GlassCard from "./ui/GlassCard";
 import StarRating from "./ui/StarRating";
 import { hoverPopSubtle } from "@/constants/animations";
-import { glass } from "@/constants/glass";
 
 const { frameTiers, defaultPerFrame } = testimonialConfig;
 
@@ -112,7 +111,7 @@ export default function TestimonialsSection() {
         </AnimatePresence>
 
         <div className="flex justify-center items-center gap-4 mt-8">
-          <button onClick={prev} className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`} aria-label="Previous testimonials">
+          <button onClick={prev} className="flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary glass-pill text-muted-foreground" aria-label="Previous testimonials">
             <ChevronLeft className="w-5 h-5" />
           </button>
           <div className="flex gap-2" role="tablist" aria-label="Testimonial pages">
@@ -120,7 +119,7 @@ export default function TestimonialsSection() {
               <button key={i} onClick={() => goToFrame(i)} className={`w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary ${i === currentFrame ? 'bg-primary' : 'bg-white/20'}`} role="tab" aria-selected={i === currentFrame} aria-label={`Page ${i + 1}`} />
             ))}
           </div>
-          <button onClick={next} className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`} aria-label="Next testimonials">
+          <button onClick={next} className="flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary glass-pill text-muted-foreground" aria-label="Next testimonials">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>

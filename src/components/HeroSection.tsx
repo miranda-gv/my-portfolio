@@ -4,7 +4,7 @@ import { heroData } from "@/data/hero";
 import { ArrowDown } from "lucide-react";
 import { generateCV } from "@/lib/generate-cv";
 import GlassCard from "./ui/GlassCard";
-import { typography } from "@/constants/animations";
+import { hoverPopSubtle } from "@/constants/animations";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -46,20 +46,17 @@ export default function HeroSection() {
               </GlassCard>
             </div>
             <h1
-              className="font-heading mb-6 tracking-tight text-foreground"
-              style={typography.hero}
+              className="font-heading mb-6 tracking-tight text-foreground text-5xl md:text-6xl lg:text-7xl leading-tight"
             >
               {name}
             </h1>
             <p
-              className="font-heading mb-8 italic text-primary"
-              style={typography.subheading}
+              className="font-heading mb-8 italic text-primary text-xl md:text-2xl"
             >
               {subheading}
             </p>
             <p
-              className="mb-12 max-w-xl text-muted-foreground"
-              style={typography.body}
+              className="mb-12 max-w-xl text-muted-foreground text-lg leading-relaxed"
             >
               {intro}
             </p>
@@ -100,11 +97,7 @@ export default function HeroSection() {
       </div>
 
       <button
-        onClick={() => {
-          if (typeof window !== 'undefined') {
-            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-          }
-        }}
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce p-3 rounded-full hover:bg-primary/20 transition-all cursor-pointer z-20"
         aria-label="Scroll to content"
         type="button"

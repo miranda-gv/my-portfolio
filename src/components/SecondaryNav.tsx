@@ -25,7 +25,7 @@ export default function SecondaryNav() {
 
   return (
     <div className="secondary-nav fixed top-16 left-0 right-0 z-40 w-full bg-background/95 overflow-hidden transition-all duration-300">
-      <div className="w-full px-4 py-2.5 overflow-hidden">
+      <div className="container mx-auto px-4 py-2.5 overflow-hidden">
         <ul className="flex items-center gap-1.5 overflow-hidden" role="list">
           {sectionLinks.map((link) => {
             const isAnchor = link.href.startsWith("#");
@@ -45,7 +45,7 @@ export default function SecondaryNav() {
                     }
                   }}
                   className={cn(
-                    "text-xs uppercase tracking-wider px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap",
+                    "text-xs uppercase tracking-wider px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap border-none outline-none",
                     isSelected
                       ? isAnchor
                         ? "text-primary bg-primary/20"
@@ -54,7 +54,6 @@ export default function SecondaryNav() {
                         ? "text-primary hover:bg-primary/15 hover:text-primary/90"
                         : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                   )}
-                  style={{ border: 'none', outline: 'none' }}
                 >
                   {link.label}
                 </Component>

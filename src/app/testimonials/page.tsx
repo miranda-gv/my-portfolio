@@ -86,7 +86,7 @@ export default function TestimonialsPage() {
         {testimonials.map((testimonial, index) => (
           <GlassCard key={index} variant="card" className={`p-8 ${index % 2 === 0 ? 'ml-0 mr-auto' : 'ml-auto mr-0'} max-w-3xl`}>
             <StarRating rating={testimonial.rating} />
-            <p className="my-4 text-foreground" style={{ fontSize: '1rem', lineHeight: '1.75' }}>
+            <p className="my-4 text-foreground text-base leading-relaxed">
               &quot;{testimonial.text}&quot;
             </p>
             <div>
@@ -140,7 +140,7 @@ export default function TestimonialsPage() {
                     </div>
                     <StarRating rating={testimonial.rating} />
                   </div>
-                  <p className="text-foreground mb-4" style={{ fontSize: '1rem' }}>&quot;{testimonial.text}&quot;</p>
+                  <p className="text-foreground mb-4 text-base">&quot;{testimonial.text}&quot;</p>
                   <div className="flex gap-3">
                     <button onClick={() => handleApprove(testimonial.id)} className="px-4 py-2 rounded-lg bg-green-500/20 text-green-400 text-sm font-medium hover:bg-green-500/30 transition-colors">Approve</button>
                     <button onClick={() => handleReject(testimonial.id)} className="px-4 py-2 rounded-lg bg-red-500/20 text-red-400 text-sm font-medium hover:bg-red-500/30 transition-colors">Reject</button>

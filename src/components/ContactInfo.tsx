@@ -1,5 +1,3 @@
-"use client";
-
 import { Mail, Phone, MapPin } from "lucide-react";
 import SocialLinks from "./SocialLinks";
 import { getEmail, getPhone } from "@/data/contact";
