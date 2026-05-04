@@ -92,6 +92,17 @@
   }
 }
 
+/* Secondary Nav - remove borders from all states */
+.secondary-nav a,
+.secondary-nav a:hover,
+.secondary-nav a:focus,
+.secondary-nav a:active,
+.secondary-nav a:visited {
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -109,4 +120,12 @@
 @utility marquee-logo-hover {
   transform: scale(1.15);
   filter: grayscale(0%) opacity(1) drop-shadow(0 0 3px rgba(var(--color-primary-glow), 0.1));
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -6,47 +6,55 @@ import { sectionLinks } from "@/data/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-/**
- * SecondaryNav - Ribbon Component
- *
- * Appears immediately on homepage (/) as user starts scrolling.
- * Shows all homepage section links styled as theme-aware pills.
- */
 export default function SecondaryNav() {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
-  // Only show on homepage
   if (pathname !== "/") return null;
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Show immediately when user starts scrolling
-      setIsVisible(window.scrollY > 0);
-    };
+    const handleScroll = () => setIsVisible(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleClick = (href: string) => setSelectedItem(href);
+
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-16 left-0 right-0 z-40 w-full bg-background/95 backdrop-blur-lg border-b border-border/50 shadow-sm transition-all duration-300">
-      <div className="container mx-auto px-4 py-2.5">
-        <ul className="flex items-center gap-1.5 overflow-x-auto" role="list">
+    <div className="secondary-nav fixed top-16 left-0 right-0 z-40 w-full bg-background/95 overflow-hidden transition-all duration-300">
+      <div className="w-full px-4 py-2.5 overflow-hidden">
+        <ul className="flex items-center gap-1.5 overflow-hidden" role="list">
           {sectionLinks.map((link) => {
             const isAnchor = link.href.startsWith("#");
             const Component = isAnchor ? Link : "a";
+            const isSelected = selectedItem === link.href;
+            
             return (
               <li key={link.href} role="listitem">
                 <Component
                   href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(link.href);
+                    if (isAnchor) {
+                      const el = document.querySelector(link.href);
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className={cn(
                     "text-xs uppercase tracking-wider px-3 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap",
-                    isAnchor
-                      ? "text-primary hover:bg-primary/15 hover:text-primary/90"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    isSelected
+                      ? isAnchor
+                        ? "text-primary bg-primary/20"
+                        : "text-foreground bg-accent/50"
+                      : isAnchor
+                        ? "text-primary hover:bg-primary/15 hover:text-primary/90"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                   )}
+                  style={{ border: 'none', outline: 'none' }}
                 >
                   {link.label}
                 </Component>
