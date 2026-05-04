@@ -54,7 +54,7 @@ export default function Section({
   heading,
   subheading,
   maxWidth = "4xl",
-  headingClassName = "mb-16 text-center text-foreground",
+  headingClassName = "mb-8 text-center text-foreground",
   children,
 }: SectionProps) {
   return (
