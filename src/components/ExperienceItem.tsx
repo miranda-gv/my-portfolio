@@ -1,5 +1,5 @@
 import type { Experience } from "@/data/experience";
-import { hoverPop } from "@/constants/animations";
+import { hoverPopSubtle } from "@/constants/animations";
 
 /**
  * Props for the ExperienceItem component
@@ -40,7 +40,7 @@ export default function ExperienceItem({ experience: exp, index }: ExperienceIte
       />
 
        <div
-         className={`ml-8 md:ml-0 p-6 md:p-8 rounded-xl ${hoverPop} glass-base`}
+         className={`ml-8 md:ml-0 p-6 md:p-8 rounded-xl ${hoverPopSubtle} glass-base`}
        >
         <div className={`mb-3 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} leading-tight`}>
           <span

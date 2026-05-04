@@ -7,6 +7,8 @@ export interface Testimonial {
   name: string;
   /** Job title and company of the person */
   title: string;
+  /** Company name (optional, for display on cards) */
+  company?: string;
   /** Date the testimonial was given */
   date: string;
   /** Working relationship to Miranda */

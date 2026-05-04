@@ -1,7 +1,6 @@
 "use client";
 
-import { type Testimonial, testimonials, testimonialsData } from "@/data/testimonials";
-import { glass } from "@/constants/glass";
+import { testimonials, testimonialsData } from "@/data/testimonials";
 import { testimonialConfig } from "@/config/testimonials";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,9 +8,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Section from "./Section";
 import GlassCard from "./ui/GlassCard";
 import StarRating from "./ui/StarRating";
-import { typography, hoverPopSubtle } from "@/constants/animations";
+import { hoverPopSubtle } from "@/constants/animations";
+import { glass } from "@/constants/glass";
 
-const { frameTiers, defaultPerFrame } = testimonialConfig;
+const { defaultPerFrame } = testimonialConfig;
 
 /** Returns grid column class based on number of testimonials in frame */
 const getGridClass = (count: number) => {
@@ -20,83 +20,41 @@ const getGridClass = (count: number) => {
   return 'md:grid-cols-3';
 };
 
-/**
- * Builds testimonial frames based on configuration tiers
- *
- * Creates frames (pages) of testimonials where:
- * - First tier: specified number of frames with configured per-frame count
- * - Remaining testimonials: grouped using defaultPerFrame
- *
- * @returns Array of testimonial arrays, each representing one frame/page
- */
+/** Build frames using defaultPerFrame */
 const buildFrames = () => {
-  const frames: Testimonial[][] = [];
-  let i = 0;
-
-  // Build frames according to tier configuration
-  for (const tier of frameTiers) {
-    const end = i + tier.count;
-    for (; i < end && i < testimonials.length; i += tier.perFrame) {
-      frames.push(testimonials.slice(i, i + tier.perFrame));
-    }
-  }
-
-  // Remaining testimonials use default frame size
-  for (; i < testimonials.length; i += defaultPerFrame) {
+  const frames: typeof testimonials[] = [];
+  for (let i = 0; i < testimonials.length; i += defaultPerFrame) {
     frames.push(testimonials.slice(i, i + defaultPerFrame));
   }
-
   return frames;
 };
 
-/** Pre-built frames from testimonial data */
 const frames = buildFrames();
 
-/**
- * Testimonials Section - Client Component
- *
- * Carousel-style testimonials display with:
- * - Config-driven frame building (variable testimonials per frame)
- * - Smooth slide animations using Framer Motion
- * - Pagination dots with ARIA tablist role
- * - Responsive grid within frames (1-3 columns based on count)
- * - Star rating display for each testimonial
- * - Full keyboard navigation support
- *
- * Frame structure is determined by testimonialConfig in src/config/testimonials.ts
- *
- * @returns The testimonials section with interactive carousel
- */
 export default function TestimonialsSection() {
   const { heading, subHeading } = testimonialsData;
   const [currentFrame, setCurrentFrame] = useState(0);
   const [direction, setDirection] = useState(0);
-
   const totalFrames = frames.length;
 
-  /** Returns the testimonials array for the current frame */
   const getCurrentFrame = () => frames[currentFrame];
 
-  /** Calculates the start and end indices for ARIA labeling */
   const getFrameIndices = () => {
     let start = 0;
     for (let i = 0; i < currentFrame; i++) start += frames[i].length;
     return { start, end: start + frames[currentFrame].length };
   };
 
-  /** Navigates to the next frame with forward direction */
   const next = useCallback(() => {
     setDirection(1);
     setCurrentFrame((prev) => (prev + 1) % totalFrames);
-  }, [setDirection, setCurrentFrame, totalFrames]);
+  }, [totalFrames]);
 
-  /** Navigates to the previous frame with backward direction */
   const prev = useCallback(() => {
     setDirection(-1);
     setCurrentFrame((prev) => (prev - 1 + totalFrames) % totalFrames);
-  }, [setDirection, setCurrentFrame, totalFrames]);
+  }, [totalFrames]);
 
-  /** Jumps to a specific frame with appropriate direction */
   const goToFrame = (frame: number) => {
     setDirection(frame > currentFrame ? 1 : -1);
     setCurrentFrame(frame);
@@ -104,107 +62,66 @@ export default function TestimonialsSection() {
 
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  /** Handles arrow key navigation when focused within testimonial section */
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      prev();
-    } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      next();
-    }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
   }, [prev, next]);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
-
     section.addEventListener('keydown', handleKeyDown);
     return () => section.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
   return (
     <Section id="testimonials" heading={heading} subheading={subHeading} maxWidth="6xl">
-          <div
-            ref={sectionRef}
-            className="relative"
-            tabIndex={0}
-            role="region"
-            aria-label="Testimonials carousel - use arrow keys to navigate"
+      <div ref={sectionRef} className="relative" tabIndex={0} role="region" aria-label="Testimonials carousel">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentFrame}
+            initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
+            transition={{ duration: 0.3 }}
+            className={`grid gap-6 ${getGridClass(frames[currentFrame].length)}`}
+            role="tabpanel"
+            aria-label={`Testimonials ${getFrameIndices().start + 1}-${getFrameIndices().end} of ${testimonials.length}`}
           >
-            <AnimatePresence mode="wait">
-               <motion.div
-                 key={currentFrame}
-                 initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
-                 animate={{ opacity: 1, x: 0 }}
-                 exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
-                 transition={{ duration: 0.3 }}
-                  className={`grid gap-6 ${getGridClass(frames[currentFrame].length)}`}
-                 role="tabpanel"
-                 aria-label={`Testimonials ${getFrameIndices().start + 1}-${getFrameIndices().end} of ${testimonials.length}`}
-               >
-                {getCurrentFrame().map((testimonial, idx) => (
-                  <GlassCard
-                     key={idx}
-                     variant="card"
-                     className={`h-full p-6 md:p-8 ${hoverPopSubtle}`}
-                     tabIndex={0}
-                   >
-                     <StarRating rating={testimonial.rating} />
+            {getCurrentFrame().map((testimonial, idx) => (
+              <GlassCard key={idx} variant="card" className={`h-full p-6 md:p-8 ${hoverPopSubtle}`} tabIndex={0}>
+                <StarRating rating={testimonial.rating} />
+                <p className="mb-6 italic text-muted-foreground">&quot;{testimonial.text}&quot;</p>
+                <div className="mt-auto">
+                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  <p className="text-sm text-primary">{testimonial.title}</p>
+                </div>
+              </GlassCard>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
-                       <p
-                          className="mb-6 italic text-muted-foreground"
-                          style={typography.small}
-                        >
-                         &quot;{testimonial.text}&quot;
-                       </p>
+        <div className="flex justify-center items-center gap-4 mt-8">
+          <button onClick={prev} className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`} aria-label="Previous testimonials">
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <div className="flex gap-2" role="tablist" aria-label="Testimonial pages">
+            {[...Array(totalFrames)].map((_, i) => (
+              <button key={i} onClick={() => goToFrame(i)} className={`w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary ${i === currentFrame ? 'bg-primary' : 'bg-white/20'}`} role="tab" aria-selected={i === currentFrame} aria-label={`Page ${i + 1}`} />
+            ))}
+          </div>
+          <button onClick={next} className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`} aria-label="Next testimonials">
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
 
-                     <div className="mt-auto">
-                       <p className="font-semibold text-foreground">
-                         {testimonial.name}
-                       </p>
-                       <p className="text-sm text-primary">
-                         {testimonial.title}
-                       </p>
-                       </div>
-                    </GlassCard>
-                 ))}
-               </motion.div>
-            </AnimatePresence>
-
-            <div className="flex justify-center items-center gap-4 mt-8">
-               <button
-                 onClick={prev}
-                 className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`}
-                 aria-label="Previous testimonials"
-               >
-                 <ChevronLeft className="w-5 h-5" />
-               </button>
-
-              <div className="flex gap-2" role="tablist" aria-label="Testimonial pages">
-                {[...Array(totalFrames)].map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goToFrame(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary ${
-                      i === currentFrame ? 'bg-primary' : 'bg-white/20'
-                    }`}
-                    role="tab"
-                    aria-selected={i === currentFrame}
-                    aria-label={`Page ${i + 1}`}
-                  />
-                ))}
-              </div>
-
-               <button
-                 onClick={next}
-                 className={`flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary ${glass.pill} text-muted-foreground`}
-                 aria-label="Next testimonials"
-               >
-                 <ChevronRight className="w-5 h-5" />
-               </button>
-              </div>
-            </div>
-      </Section>
-   );
- }
+        <div className="text-center mt-8">
+          <a href="/testimonials" className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-pill text-primary border border-primary/30 hover:bg-primary/10 transition-all duration-300 font-medium">
+            View All Testimonials
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+      </div>
+    </Section>
+  );
+}

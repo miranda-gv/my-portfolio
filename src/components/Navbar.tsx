@@ -59,7 +59,7 @@ export default function Navbar() {
       )}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between h-16" aria-label="Main navigation">
-          <Link href="#" className={cn("text-2xl font-bold transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-sm", navTextColor)} aria-label={`${siteConfig.name} - Home`}>
+          <Link href="/" className={cn("text-2xl font-bold transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-sm", navTextColor)} aria-label={`${siteConfig.name} - Home`}>
           {siteConfig.name}
         </Link>
 

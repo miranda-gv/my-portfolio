@@ -19,20 +19,7 @@ export const skillsData = {
   heading: "SKILLS & EXPERTISE",
   categories: [
     {
-      category: "End to End Testing",
-      items: [
-        "UI/UX Design",
-        "Cross-browser Compatibility",
-        "Functional Testing",
-        "Accessibility Testing",
-        "SEO Testing",
-        "Regression Testing",
-        "Exploratory Testing",
-        "UAT",
-      ],
-    },
-    {
-      category: "Automation",
+      category: "Test Automation",
       items: [
         "Playwright",
         "Selenium WebDriver",
@@ -55,6 +42,19 @@ export const skillsData = {
         "TypeScript",
         "HTML",
         "CSS",
+      ],
+    },
+    {
+      category: "End to End Testing",
+      items: [
+        "UI/UX Design",
+        "Cross-browser Compatibility",
+        "Functional Testing",
+        "Accessibility Testing",
+        "SEO Testing",
+        "Regression Testing",
+        "Exploratory Testing",
+        "UAT",
       ],
     },
     {

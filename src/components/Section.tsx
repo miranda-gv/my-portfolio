@@ -65,7 +65,7 @@ export default function Section({
         <div className="mx-auto" style={{ maxWidth: maxWidthMap[maxWidth] || maxWidthMap["4xl"] }}>
           {heading && (
             <h2
-              className={`font-heading ${headingMargin} ${headingClassName} text-center text-foreground`}
+              className={`font-heading mt-12 mb-12 ${headingClassName} text-center text-foreground`}
               style={typography.heading}
             >
               {heading}

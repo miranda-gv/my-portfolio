@@ -2,13 +2,13 @@
  * Navigation Links Data
  *
  * Contains site navigation links used by Navbar component.
- * Each entry maps to a section ID in the portfolio.
+ * Top-level pages link to their own routes; others link to homepage sections.
  */
 export const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#clients", label: "Clients" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#contact", label: "Contact" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/experience", label: "Experience" },
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/#contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
 ] as const;
