@@ -54,16 +54,18 @@ export default function Section({
   heading,
   subheading,
   maxWidth = "4xl",
-  headingClassName = "mb-8 text-center text-foreground",
+  headingClassName = "",
   children,
 }: SectionProps) {
+  const headingMargin = subheading ? "mb-8" : "mb-24";
+
   return (
     <section id={id} className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="mx-auto" style={{ maxWidth: maxWidthMap[maxWidth] || maxWidthMap["4xl"] }}>
           {heading && (
             <h2
-              className={`font-heading ${headingClassName}`}
+              className={`font-heading ${headingMargin} ${headingClassName} text-center text-foreground`}
               style={typography.heading}
             >
               {heading}
