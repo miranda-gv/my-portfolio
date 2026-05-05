@@ -13,7 +13,7 @@ export default function BlogPostLayout({ children }: BlogPostLayoutProps) {
           {children}
         </div>
         <aside className="w-full lg:w-[18rem] xl:w-[21.6rem] shrink-0">
-          <div className="sticky top-24 md:top-28">
+          <div className="sticky top-[220px] md:top-[260px]">
             <BlogSidebar />
           </div>
         </aside>
