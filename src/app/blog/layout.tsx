@@ -7,8 +7,10 @@ interface BlogLayoutProps {
 
 export default function BlogLayout({ children }: BlogLayoutProps) {
   return (
-    <Section id="blog-index" maxWidth="6xl">
-      {children}
+    <Section id="blog-index" maxWidth="none">
+      <div className="container mx-auto px-4">
+        {children}
+      </div>
     </Section>
   );
 }
