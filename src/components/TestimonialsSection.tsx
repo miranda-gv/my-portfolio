@@ -5,7 +5,7 @@ import { testimonialConfig } from "@/config/testimonials";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Section from "./Section";
+import Section from "./ui/Section";
 import GlassCard from "./ui/GlassCard";
 import StarRating from "./ui/StarRating";
 import { hoverPopSubtle } from "@/constants/animations";

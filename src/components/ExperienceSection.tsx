@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { experience, experienceData } from "@/data/experience";
-import Section from "./Section";
+import Section from "./ui/Section";
 import FadeIn from "./ui/FadeIn";
 import ExperienceItem from "./ExperienceItem";
 

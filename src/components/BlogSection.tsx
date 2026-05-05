@@ -1,7 +1,7 @@
 "use client";
 
 import { blogPosts, blogData } from "@/data/blog";
-import Section from "./Section";
+import Section from "./ui/Section";
 import CardGrid, { GlassCardItem } from "./CardGrid";
 import ViewAllLink from "./ViewAllLink";
 import BlogCard from "./BlogCard";

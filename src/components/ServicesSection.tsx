@@ -1,7 +1,7 @@
 "use client";
 
 import { services, servicesData } from "@/data/services";
-import Section from "./Section";
+import Section from "./ui/Section";
 import FadeIn from "./ui/FadeIn";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";

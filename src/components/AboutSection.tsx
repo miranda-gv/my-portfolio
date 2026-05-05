@@ -1,7 +1,7 @@
 "use client";
 
 import { aboutData } from "@/data/about";
-import Section from "./Section";
+import Section from "./ui/Section";
 import GlassCard from "./ui/GlassCard";
 import { hoverPopSubtle } from "@/constants/animations";
 

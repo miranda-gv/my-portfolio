@@ -1,5 +1,5 @@
 import { contactData } from "@/data/contact";
-import Section from "./Section";
+import Section from "./ui/Section";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import SocialLinks from "./SocialLinks";

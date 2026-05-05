@@ -1,7 +1,7 @@
 "use client";
 
 import { skillsData } from "@/data/skills";
-import Section from "./Section";
+import Section from "./ui/Section";
 import GlassCard from "./ui/GlassCard";
 import FadeIn from "./ui/FadeIn";
 import { hoverPopSubtle } from "@/constants/animations";

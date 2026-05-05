@@ -1,7 +1,7 @@
 "use client";
 
 import { clients, clientsData } from "@/data/clients";
-import Section from "./Section";
+import Section from "./ui/Section";
 import Marquee from "./ui/Marquee";
 import Image from "next/image";
 

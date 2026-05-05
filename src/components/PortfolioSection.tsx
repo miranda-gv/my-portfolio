@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { portfolioProjects, portfolioData, PortfolioCategory, portfolioCategories } from "@/data/portfolio";
-import Section from "./Section";
+import Section from "./ui/Section";
 import FadeIn from "./ui/FadeIn";
 import CardGrid, { GlassCardItem } from "./CardGrid";
 import ViewAllLink from "./ViewAllLink";
