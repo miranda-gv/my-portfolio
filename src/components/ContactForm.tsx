@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { contactData } from "@/data/contact";
+import GlassCard from "./ui/GlassCard";
 
 const inputClasses =
-  "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-base transition-colors focus:outline-none focus:border-primary/50";
+  "w-full px-4 py-3 rounded-lg bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-base transition-colors focus:outline-none focus:border-primary/50";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -37,35 +37,39 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <input type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required className={inputClasses} />
-      <input type="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required className={inputClasses} />
-      <textarea name="message" placeholder="Your message..." value={formData.message} onChange={handleChange} required rows={6} className={`${inputClasses} resize-none`} />
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className={cn(
-          "w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-lg font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]",
-          status === "sent"
-            ? "bg-green-500/20 text-green-400"
-            : status === "error"
-              ? "bg-destructive/20 text-destructive"
-              : "bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(var(--color-primary-glow),0.3)] hover:shadow-[0_6px_20px_rgba(var(--color-primary-glow),0.5)]"
-        )}
-      >
-        {status === "sending" ? (
-          <span className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
-        ) : status === "sent" ? (
-          "Sent! ✓"
-        ) : status === "error" ? (
-          "Error - Try Again"
-        ) : (
-          <>
-            <Send className="w-4 h-4" />
-            {contactData.sendButtonLabel}
-          </>
-        )}
-      </button>
-    </form>
+    <GlassCard variant="card" className="p-8 rounded-2xl">
+      <h3 className="font-heading text-2xl text-center uppercase tracking-wider text-primary mb-6">
+        {contactData.formHeading}
+      </h3>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required className={inputClasses} />
+          <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required className={inputClasses} />
+        </div>
+        <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required rows={4} className={`${inputClasses} resize-none`} />
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className={cn(
+            "w-full px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] uppercase tracking-wider text-base",
+            status === "sent"
+              ? "bg-green-500/20 text-green-400"
+              : status === "error"
+                ? "bg-destructive/20 text-destructive"
+                : "bg-primary text-primary-foreground shadow-[0_4px_15px_rgba(var(--color-primary-glow),0.3)]"
+          )}
+        >
+          {status === "sending" ? (
+            <span className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
+          ) : status === "sent" ? (
+            "Sent! ✓"
+          ) : status === "error" ? (
+            "Error - Try Again"
+          ) : (
+            contactData.sendButtonLabel
+          )}
+        </button>
+      </form>
+    </GlassCard>
   );
 }
