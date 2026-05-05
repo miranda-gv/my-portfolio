@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { type Testimonial, testimonials, testimonialsData } from "@/data/testimonials";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import GlassCard from "@/components/ui/GlassCard";
 import StarRating from "@/components/ui/StarRating";
 import TestimonialModal from "@/components/TestimonialModal";

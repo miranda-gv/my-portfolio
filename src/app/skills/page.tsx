@@ -1,5 +1,5 @@
 import { skillsData } from "@/data/skills";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import GlassCard from "@/components/ui/GlassCard";
 import { hoverPopSubtle } from "@/constants/animations";

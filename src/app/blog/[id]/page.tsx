@@ -1,6 +1,6 @@
 import { blogPosts } from "@/data/blog";
 import { notFound } from "next/navigation";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import GlassCard from "@/components/ui/GlassCard";
 import { Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";

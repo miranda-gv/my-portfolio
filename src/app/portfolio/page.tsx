@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { portfolioProjects, portfolioData, PortfolioCategory, portfolioCategories } from "@/data/portfolio";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import { hoverPopSubtle } from "@/constants/animations";
 import PortfolioCard from "@/components/PortfolioCard";

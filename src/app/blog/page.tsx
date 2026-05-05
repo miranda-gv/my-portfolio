@@ -1,5 +1,5 @@
 import { blogPosts, blogData } from "@/data/blog";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import { hoverPopSubtle } from "@/constants/animations";
 import BlogCard from "@/components/BlogCard";

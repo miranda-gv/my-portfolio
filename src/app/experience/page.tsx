@@ -1,5 +1,5 @@
 import { experience, experienceData } from "@/data/experience";
-import Section from "@/components/Section";
+import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import ExperienceItem from "@/components/ExperienceItem";
 
