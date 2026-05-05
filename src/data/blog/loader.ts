@@ -11,11 +11,13 @@ type ContentModule = {
  * Maps contentFile paths to their corresponding imports
  */
 const contentMap: Record<string, () => Promise<ContentModule>> = {
-  "@/data/blog/posts/building-qa-dashboards-with-nextjs": () =>
-    import("@/data/blog/posts/building-qa-dashboards-with-nextjs"),
+  "@/data/blog/posts/building-ci-artfact-dashboards-with-nextjs": () =>
+    import("@/data/blog/posts/building-ci-artfact-dashboards-with-nextjs"),
 };
 
-export async function loadBlogContent(contentFile: string): Promise<BlogPostContent | null> {
+export async function loadBlogContent(
+  contentFile: string,
+): Promise<BlogPostContent | null> {
   try {
     const loader = contentMap[contentFile];
     if (!loader) {

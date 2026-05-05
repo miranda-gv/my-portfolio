@@ -10,10 +10,12 @@ interface SectionProps {
   heading?: string;
   /** Optional subheading text below heading (supports ReactNode for line breaks) */
   subheading?: ReactNode;
-  /** Max width preset (2xl-7xl) or custom value */
+  /** Max width preset (2xl-7xl), "none" for no constraint, or custom value */
   maxWidth?: string;
   /** Additional CSS classes for heading */
   headingClassName?: string;
+  /** Additional CSS classes for section element */
+  className?: string;
   /** Section content */
   children: ReactNode;
 }
@@ -54,14 +56,15 @@ export default function Section({
   subheading,
   maxWidth = "4xl",
   headingClassName = "",
+  className = "",
   children,
 }: SectionProps) {
   const headingMargin = subheading ? "mb-8" : "mb-24";
 
   return (
-    <section id={id} className="py-24 bg-background">
+    <section id={id} className={`py-24 bg-background ${className}`}>
       <div className="container mx-auto px-6">
-         <div className="mx-auto" style={{ maxWidth: maxWidthMap[maxWidth] || maxWidthMap["4xl"] }}>
+         <div className="mx-auto" style={{ maxWidth: maxWidth === "none" ? undefined : (maxWidthMap[maxWidth] || maxWidthMap["4xl"]) }}>
           {heading && (
             <h2
                className={`font-heading mt-12 mb-12 ${headingClassName} text-center text-foreground text-3xl md:text-4xl`}

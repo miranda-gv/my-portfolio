@@ -13,21 +13,29 @@ export const blogData: BlogData = {
   subHeading: "Thoughts on QA, automation, and modern web development",
   items: [
     {
-      id: "building-qa-dashboards-with-nextjs",
+      id: "building-ci-artfact-dashboards-with-nextjs",
       title: "Building QA Dashboards with Next.js & Playwright",
       date: "2025-12-15",
-      excerpt: "How I built DashWright to transform Playwright test artifacts into interactive stakeholder dashboards.",
+      excerpt:
+        "How I built DashWright to transform Playwright test artifacts into interactive stakeholder dashboards.",
       tags: ["Next.js", "Playwright", "QA", "Dashboards"],
       readTime: 8,
       published: true,
-       images: [{ src: "/blog/dashwright-hero.png", alt: "DashWright homepage hero image" }],
-      contentFile: "@/data/blog/posts/building-qa-dashboards-with-nextjs",
+      images: [
+        {
+          src: "/blog/dashwright/dashwright-dashboard1.png",
+          alt: "DashWright dashboard image",
+        },
+      ],
+      contentFile:
+        "@/data/blog/posts/building-ci-artfact-dashboards-with-nextjs",
     },
     {
       id: "shift-left-testing-cicd",
       title: "Shift-Left Testing: Integrating QA into CI/CD Pipelines",
       date: "2025-11-20",
-      excerpt: "Practical strategies for implementing shift-left testing with GitHub Actions and Playwright.",
+      excerpt:
+        "Practical strategies for implementing shift-left testing with GitHub Actions and Playwright.",
       tags: ["CI/CD", "Playwright", "GitHub Actions", "QA Strategy"],
       readTime: 6,
       published: false,
@@ -37,7 +45,8 @@ export const blogData: BlogData = {
       id: "glassmorphism-design-nextjs",
       title: "Implementing Glassmorphism Design in Next.js",
       date: "2025-10-10",
-      excerpt: "A deep dive into creating modern glassmorphism effects with Tailwind CSS and Framer Motion.",
+      excerpt:
+        "A deep dive into creating modern glassmorphism effects with Tailwind CSS and Framer Motion.",
       tags: ["Design", "Next.js", "Tailwind CSS", "Framer Motion"],
       readTime: 5,
       published: false,

@@ -21,7 +21,7 @@ export default function BlogPage() {
   const publishedPosts = blogPosts.filter((p: BlogPost) => p.published);
 
   return (
-    <Section id="blog" heading={heading} subheading={subHeading} maxWidth="6xl">
+    <Section id="blog" heading={heading} subheading={subHeading} maxWidth="none" className="px-0">
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {publishedPosts.map((post: BlogPost, index: number) => (
           <BlogCard key={post.id} post={post} index={index} variant="full" />

@@ -8,6 +8,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { loadBlogContent } from "@/data/blog/loader";
 import type { BlogImage } from "@/data/blog/types";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github-dark.css";
 
 interface BlogPostPageProps {
   params: Promise<{ id: string }>;
@@ -40,7 +44,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const content = post.contentFile ? await loadBlogContent(post.contentFile) : null;
 
   return (
-    <Section id="blog-post" heading="" maxWidth="3xl">
+    <Section id="blog-post" heading="" maxWidth="none" className="px-0">
       <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
         <ArrowLeft className="w-4 h-4" />
         Back to Blog
@@ -69,7 +73,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {content && (
           <article className="prose prose-invert prose-lg max-w-none text-foreground">
             {content.intro && (
-              <p className="lead text-xl mb-8 text-foreground/90">{content.intro}</p>
+              <div className="lead text-xl mb-8 text-foreground/90">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{content.intro}</ReactMarkdown>
+              </div>
             )}
 
             {content.sections.map((section, index) => (
@@ -77,20 +83,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {section.heading && (
                   <h2 className="font-heading text-2xl mt-8 mb-4">{section.heading}</h2>
                 )}
-                {section.content.split('\n\n').map((paragraph, pIndex) => (
-                  <p key={pIndex} className="mb-4">{paragraph}</p>
-                ))}
+                <div className="prose prose-invert prose-lg max-w-none text-foreground">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+                    {section.content}
+                  </ReactMarkdown>
+                </div>
                 {section.images && section.images.length > 0 && (
                   <div className="my-6 flex flex-col gap-4">
                     {section.images.map((img: BlogImage, idx: number) => (
                       <div key={idx} className="rounded-lg overflow-hidden border border-white/10">
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          width={800}
-                          height={450}
-                          className="w-full h-auto"
-                        />
+                        {img.src.endsWith('.svg') ? (
+                          <img
+                            src={img.src}
+                            alt={img.alt}
+                            className="w-full h-auto"
+                          />
+                        ) : (
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            width={800}
+                            height={450}
+                            className="w-full h-auto"
+                          />
+                        )}
                       </div>
                     ))}
                   </div>
@@ -99,8 +115,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
 
             {content.conclusion && (
-              <div className="mt-10 pt-6 border-t border-white/10">
-                <p className="text-foreground/90">{content.conclusion}</p>
+              <div className="mt-10 pt-6 border-t border-white/10 text-foreground/90">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{content.conclusion}</ReactMarkdown>
               </div>
             )}
           </article>
