@@ -34,7 +34,7 @@ export default function PrivacyPage() {
           <h2 className="font-heading text-xl text-foreground mb-3">6. Contact Information</h2>
           <p>If you have any questions regarding this Privacy Policy, please contact us through the contact form on this website.</p>
         </div>
-        <p className="text-xs text-muted-foreground/60 pt-4 border-t border-white/10">Last updated: January 1, 2026</p>
+        <p className="text-xs text-muted-foreground/60 pt-4 border-t border-white/10">Last updated: May 1, 2026</p>
       </div>
     </Section>
   );

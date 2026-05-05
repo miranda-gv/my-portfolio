@@ -15,7 +15,7 @@ export const blogData: BlogData = {
     {
       id: "building-ci-artfact-dashboards-with-nextjs",
       title: "Building QA Dashboards with Next.js & Playwright",
-      date: "2025-12-15",
+      date: "2026-04-15",
       excerpt:
         "How I built DashWright to transform Playwright test artifacts into interactive stakeholder dashboards.",
       tags: ["Next.js", "Playwright", "QA", "Dashboards"],
@@ -33,7 +33,7 @@ export const blogData: BlogData = {
     {
       id: "shift-left-testing-cicd",
       title: "Shift-Left Testing: Integrating QA into CI/CD Pipelines",
-      date: "2025-11-20",
+      date: "2026-05-05",
       excerpt:
         "Practical strategies for implementing shift-left testing with GitHub Actions and Playwright.",
       tags: ["CI/CD", "Playwright", "GitHub Actions", "QA Strategy"],
@@ -44,7 +44,7 @@ export const blogData: BlogData = {
     {
       id: "glassmorphism-design-nextjs",
       title: "Implementing Glassmorphism Design in Next.js",
-      date: "2025-10-10",
+      date: "2026-05-20",
       excerpt:
         "A deep dive into creating modern glassmorphism effects with Tailwind CSS and Framer Motion.",
       tags: ["Design", "Next.js", "Tailwind CSS", "Framer Motion"],
