@@ -1,8 +1,12 @@
+export interface BlogImage {
+  src: string;
+  alt: string;
+}
+
 export interface BlogPostSection {
   heading?: string;
   content: string;
-  image?: string;
-  imageAlt?: string;
+  images?: BlogImage[];
 }
 
 export interface BlogPostContent {
@@ -19,7 +23,7 @@ export interface BlogPost {
   tags: string[];
   readTime: number;
   published: boolean;
-  image?: string;
+  images?: BlogImage[];
   contentFile?: string;
 }
 

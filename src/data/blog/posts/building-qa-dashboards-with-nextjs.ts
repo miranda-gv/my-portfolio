@@ -8,24 +8,38 @@ export const buildingQADashboardsPost: BlogPostContent = {
       heading: "The Problem: Test Reports That Nobody Reads",
       content:
         "We've all been there. Your Playwright tests run in CI, generate HTML reports, and then... nothing. Those reports sit in your pipeline artifacts, hidden behind authentication, impossible to share with product managers or executives.\n\nThe options were:\n- Screenshot everything (boring, static)\n- Share CI links (requires auth, confusing)\n- Build custom reporters (time-consuming)\n\nI wanted something better: **instant, shareable dashboards** that look great and work for everyone.",
-      image: "/blog/dashwright-problem.png",
-      imageAlt:
-        "Screenshot showing buried CI artifacts that are hard to access",
+      images: [
+        {
+          src: "/blog/dashwright-problem1.png",
+          alt: "Screenshot showing Scattered Workflows",
+        },
+        {
+          src: "/blog/dashwright-problem2.png",
+          alt: "Screenshot showing Buried CI artifacts",
+        },
+      ],
     },
     {
       heading: "Enter DashWright: The Solution",
       content:
         "DashWright is a Next.js app that transforms Playwright test artifacts into interactive dashboards. Here's what makes it special:\n\n- **One-click import** from GitHub Actions, Azure DevOps, or GitLab CI\n- **7+ design themes** from corporate to cyberpunk (because why should dashboards be boring?)\n- **Ephemeral preview links** you can share instantly\n- **Zero-setup visualization** - just point it at your artifacts\n\nBuilt for QA teams who want to communicate test results effectively.",
-      image: "/blog/dashwright-dashboard.png",
-      imageAlt:
-        "DashWright dashboard showing colorful test results visualization",
+      images: [
+        {
+          src: "/blog/dashwright-dashboard1.png",
+          alt: "DashWright dashboard showing colorful test results visualization",
+        },
+      ],
     },
     {
       heading: "How It Works: The Architecture",
       content:
         "The magic happens in three steps:\n\n### 1. Fetch Artifacts from CI\nUsing Octokit for GitHub, we grab the HTML report ZIP from your workflow run. No downloads to disk - everything streams.\n\n### 2. Stream Process the ZIP\nHere's the cool part - we don't load the entire ZIP into memory. Using `unzipper` with streaming, we process files entry-by-entry:\n\n```typescript\nconst zip = await unzipper.Open.url(url, { forceStream: true });\nfor await (const entry of zip) {\n  if (entry.type === 'File') {\n    const buffer = await entry.buffer();\n    // Process each file\n  }\n}\n```\n\n### 3. Generate the Dashboard\nApply your chosen design theme, inject the test data, and boom - instant dashboard.",
-      image: "/blog/dashwright-architecture.svg",
-      imageAlt: "Architecture diagram showing CI → DashWright → Dashboard flow",
+      images: [
+        {
+          src: "/blog/dashwright-architecture.svg",
+          alt: "Architecture diagram showing CI → DashWright → Dashboard flow",
+        },
+      ],
     },
     {
       heading: "Key Technical Decisions",
@@ -41,9 +55,6 @@ export const buildingQADashboardsPost: BlogPostContent = {
       heading: "The Result: Real Adoption",
       content:
         'DashWright is live at [dashwright.com](https://dashwright.com) with:\n\n- **Free tier** for open-source projects\n- **Premium themes** for teams that want branded dashboards\n- **Real-time previews** that update as your tests run\n\nThe feedback from QA teams has been incredible. Finally, stakeholders can actually understand what\'s happening with test results.\n\nNo more "the tests are running" black hole. Now it\'s "here\'s exactly what passed, failed, and why."',
-      image: "/blog/dashwright-preview.png",
-      imageAlt:
-        "Example of a shared DashWright preview link on mobile and desktop",
     },
   ],
   conclusion:

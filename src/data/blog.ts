@@ -20,7 +20,7 @@ export const blogData: BlogData = {
       tags: ["Next.js", "Playwright", "QA", "Dashboards"],
       readTime: 8,
       published: true,
-      image: "/blog/dashwright-hero.png",
+       images: [{ src: "/blog/dashwright-hero.png", alt: "DashWright homepage hero image" }],
       contentFile: "@/data/blog/posts/building-qa-dashboards-with-nextjs",
     },
     {

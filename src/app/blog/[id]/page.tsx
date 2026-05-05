@@ -7,6 +7,7 @@ import { Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { loadBlogContent } from "@/data/blog/loader";
+import type { BlogImage } from "@/data/blog/types";
 
 interface BlogPostPageProps {
   params: Promise<{ id: string }>;
@@ -65,7 +66,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           ))}
         </div>
 
-        {content && (
+            {content && (
           <article className="prose prose-invert prose-lg max-w-none text-foreground">
             {content.intro && (
               <p className="lead text-xl mb-8 text-foreground/90">{content.intro}</p>
@@ -79,15 +80,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {section.content.split('\n\n').map((paragraph, pIndex) => (
                   <p key={pIndex} className="mb-4">{paragraph}</p>
                 ))}
-                {section.image && (
-                  <div className="my-6 rounded-lg overflow-hidden border border-white/10">
-                    <Image
-                      src={section.image}
-                      alt={section.imageAlt || section.heading || 'Blog image'}
-                      width={800}
-                      height={450}
-                      className="w-full h-auto"
-                    />
+                {section.images && section.images.length > 0 && (
+                  <div className="my-6 flex flex-col gap-4">
+                    {section.images.map((img: BlogImage, idx: number) => (
+                      <div key={idx} className="rounded-lg overflow-hidden border border-white/10">
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          width={800}
+                          height={450}
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
