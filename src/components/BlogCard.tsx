@@ -1,4 +1,3 @@
-import { blogPosts } from "@/data/blog";
 import type { BlogPost } from "@/data/blog";
 import GlassCard from "@/components/ui/GlassCard";
 import { Clock, ArrowRight } from "lucide-react";

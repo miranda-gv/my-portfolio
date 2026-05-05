@@ -1,7 +1,6 @@
 import { blogPosts } from "@/data/blog";
 import type { BlogPost } from "@/data/blog";
 import { notFound } from "next/navigation";
-import Section from "@/components/ui/Section";
 import GlassCard from "@/components/ui/GlassCard";
 import { Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -44,7 +43,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const content = post.contentFile ? await loadBlogContent(post.contentFile) : null;
 
   return (
-    <Section id="blog-post" heading="" maxWidth="none" className="px-0">
+    <>
       <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
         <ArrowLeft className="w-4 h-4" />
         Back to Blog
@@ -70,7 +69,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           ))}
         </div>
 
-            {content && (
+        {content && (
           <article className="prose prose-invert prose-lg max-w-none text-foreground">
             {content.intro && (
               <div className="lead text-xl mb-8 text-foreground/90">
@@ -122,6 +121,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </article>
         )}
       </GlassCard>
-    </Section>
+    </>
   );
 }
