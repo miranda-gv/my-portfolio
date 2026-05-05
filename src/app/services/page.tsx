@@ -4,7 +4,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import GlassCard from "@/components/ui/GlassCard";
 import { hoverPopSubtle } from "@/constants/animations";
 import ServiceIcon from "@/components/ServiceIcon";
-import CheckIcon from "@/components/CheckIcon";
+import CheckIcon from "@/components/ui/CheckIcon";
 
 /**
  * Services Page - Server Component

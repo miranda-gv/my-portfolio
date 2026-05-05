@@ -52,7 +52,7 @@ src/
 │   ├── testimonials.ts     # Testimonials + interface
 │   ├── contact.ts          # Contact info (obfuscated for spam protection)
 │   ├── navigation.ts       # Nav links
-│   └── social-links.ts    # Social media URLs (single source of truth)
+│   └── social.ts    # Social media URLs (single source of truth)
 ├── config/                # Configuration files
 │   ├── site.ts            # Site metadata
 │   └── testimonials.ts    # Testimonial display config

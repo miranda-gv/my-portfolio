@@ -4,7 +4,7 @@
  * Contains contact information and section text.
  * Email and phone are obfuscated to prevent scraping/spam.
  * Used by ContactSection component to display contact methods.
- * Social links imported from social-links.ts to avoid duplication.
+ * Social links imported from social.ts to avoid duplication.
  */
 export const contactData = {
   heading: "GET IN TOUCH",

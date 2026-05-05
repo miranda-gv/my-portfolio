@@ -8,7 +8,7 @@ import Link from "next/link";
 import CardGrid, { GlassCardItem } from "./CardGrid";
 import ViewAllLink from "./ViewAllLink";
 import ServiceIcon from "./ServiceIcon";
-import CheckIcon from "./CheckIcon";
+import CheckIcon from "@/components/ui/CheckIcon";
 
 /**
  * Services Section - Client Component

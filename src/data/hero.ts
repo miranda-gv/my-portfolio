@@ -3,7 +3,6 @@
  *
  * Contains personal branding information displayed in the Hero section.
  * Used by HeroSection component and API route for CV generation.
- * Social links imported from social-links.ts to avoid duplication.
  */
 export const heroData = {
   name: "Miranda George",
