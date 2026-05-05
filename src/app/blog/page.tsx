@@ -1,4 +1,5 @@
 import { blogPosts, blogData } from "@/data/blog";
+import type { BlogPost } from "@/data/blog";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import { hoverPopSubtle } from "@/constants/animations";
@@ -17,12 +18,12 @@ import BlogCard from "@/components/BlogCard";
  */
 export default function BlogPage() {
   const { heading, subHeading } = blogData;
-  const publishedPosts = blogPosts.filter(p => p.published);
+  const publishedPosts = blogPosts.filter((p: BlogPost) => p.published);
 
   return (
     <Section id="blog" heading={heading} subheading={subHeading} maxWidth="6xl">
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {publishedPosts.map((post, index) => (
+        {publishedPosts.map((post: BlogPost, index: number) => (
           <BlogCard key={post.id} post={post} index={index} variant="full" />
         ))}
       </div>

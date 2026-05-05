@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <defs>
+    <style>
+      .box { fill: #1a1a2e; stroke: #FFD700; stroke-width: 2; rx: 8; }
+      .box-alt { fill: #16213e; stroke: #FFD700; stroke-width: 2; rx: 8; }
+      .arrow { stroke: #FFD700; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .text { fill: #ffffff; font-family: 'Space Grotesk', Arial, sans-serif; font-size: 14px; }
+      .text-sm { fill: #ffffff; font-family: 'DM Sans', Arial, sans-serif; font-size: 12px; }
+      .text-title { fill: #FFD700; font-family: 'Space Grotesk', Arial, sans-serif; font-size: 16px; font-weight: bold; }
+      .label { fill: #888; font-family: 'DM Mono', monospace; font-size: 10px; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#FFD700" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="text-title">DashWright Architecture</text>
+
+  <!-- CI/CD Providers -->
+  <rect x="50" y="80" width="200" height="80" class="box" />
+  <text x="150" y="110" text-anchor="middle" class="text-title">CI/CD Providers</text>
+  <text x="150" y="130" text-anchor="middle" class="text-sm">GitHub Actions</text>
+  <text x="150" y="148" text-anchor="middle" class="text-sm">Azure DevOps • GitLab CI</text>
+
+  <!-- Next.js App -->
+  <rect x="400" y="80" width="200" height="80" class="box" />
+  <text x="500" y="110" text-anchor="middle" class="text-title">Next.js App</text>
+  <text x="500" y="130" text-anchor="middle" class="text-sm">App Router</text>
+  <text x="500" y="148" text-anchor="middle" class="text-sm">Server Components</text>
+
+  <!-- API Routes -->
+  <rect x="400" y="220" width="200" height="80" class="box-alt" />
+  <text x="500" y="250" text-anchor="middle" class="text-title">API Routes</text>
+  <text x="500" y="270" text-anchor="middle" class="text-sm">/api/generate</text>
+  <text x="500" y="288" text-anchor="middle" class="text-sm">Auth • Preview • Stripe</text>
+
+  <!-- Artifact Engine -->
+  <rect x="400" y="360" width="200" height="80" class="box" />
+  <text x="500" y="390" text-anchor="middle" class="text-title">Artifact Engine</text>
+  <text x="500" y="410" text-anchor="middle" class="text-sm">Streaming ZIP Extract</text>
+  <text x="500" y="428" text-anchor="middle" class="text-sm">Path Traversal Protection</text>
+
+  <!-- Design System -->
+  <rect x="700" y="220" width="200" height="80" class="box-alt" />
+  <text x="800" y="250" text-anchor="middle" class="text-title">Design System</text>
+  <text x="800" y="270" text-anchor="middle" class="text-sm">7+ Themes</text>
+  <text x="800" y="288" text-anchor="middle" class="text-sm">Glassmorphism • Cyberpunk</text>
+
+  <!-- Dashboard Preview -->
+  <rect x="700" y="360" width="200" height="80" class="box" />
+  <text x="800" y="390" text-anchor="middle" class="text-title">Dashboard Preview</text>
+  <text x="800" y="410" text-anchor="middle" class="text-sm">Ephemeral Sessions</text>
+  <text x="800" y="428" text-anchor="middle" class="text-sm">Auto-cleanup (1hr)</text>
+
+  <!-- Supabase -->
+  <rect x="400" y="500" width="200" height="60" class="box-alt" />
+  <text x="500" y="525" text-anchor="middle" class="text-title">Supabase</text>
+  <text x="500" y="543" text-anchor="middle" class="text-sm">PostgreSQL • Auth</text>
+
+  <!-- Arrows -->
+  <!-- CI to Next.js (center to center) -->
+  <path d="M 250 120 L 400 120" class="arrow" />
+
+  <!-- Next.js to API (center bottom to center top) -->
+  <path d="M 500 160 L 500 220" class="arrow" />
+
+  <!-- API to Artifact Engine (center bottom to center top) -->
+  <path d="M 500 300 L 500 360" class="arrow" />
+
+  <!-- API to Design System (center right to center left) -->
+  <path d="M 600 260 L 700 260" class="arrow" />
+
+  <!-- Design to Preview (center bottom to center top) -->
+  <path d="M 800 300 L 800 360" class="arrow" />
+
+  <!-- Artifact to Preview (center right to center left) -->
+  <path d="M 600 400 L 700 400" class="arrow" />
+
+  <!-- API ↔ Supabase (bidirectional, left side routing) -->
+  <path d="M 400 260 L 380 260 L 380 530 L 400 530" class="arrow" />
+  <path d="M 400 530 L 380 530 L 380 260 L 400 260" class="arrow" stroke-dasharray="3,3" />
+
+  <!-- User -->
+  <circle cx="150" cy="500" r="30" fill="#FFD700" opacity="0.8" />
+  <text x="150" y="505" text-anchor="middle" class="text" fill="#000">User</text>
+
+  <!-- User to Next.js (dashed) -->
+  <path d="M 180 500 L 400 120" class="arrow" stroke-dasharray="5,5" />
+
+  <!-- Labels -->
+  <text x="320" y="115" text-anchor="middle" class="label">OAuth • PAT</text>
+  <text x="642" y="255" text-anchor="middle" class="label">Route Handler</text>
+  <text x="750" y="315" text-anchor="middle" class="label">Theme Selector</text>
+  <text x="650" y="395" text-anchor="middle" class="label">Process &amp; Render</text>
+</svg>

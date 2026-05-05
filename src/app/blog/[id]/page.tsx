@@ -1,12 +1,15 @@
 import { blogPosts } from "@/data/blog";
+import type { BlogPost } from "@/data/blog";
 import { notFound } from "next/navigation";
 import Section from "@/components/ui/Section";
 import GlassCard from "@/components/ui/GlassCard";
 import { Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { loadBlogContent } from "@/data/blog/loader";
 
 interface BlogPostPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 /**
@@ -14,25 +17,26 @@ interface BlogPostPageProps {
  */
 export function generateStaticParams() {
   return blogPosts
-    .filter(p => p.published)
-    .map(post => ({ id: post.id }));
+    .filter((p: BlogPost) => p.published)
+    .map((post: BlogPost) => ({ id: post.id }));
 }
 
 /**
  * Blog Post Page - Server Component
  *
  * Individual blog post page with:
- * - Full post content display
+ * - Rich content rendering from separate content files
+ * - Image support for each section
  * - Back link to blog listing
  * - Date, read time, and tags
- * - Meta information for SEO
- *
- * Each post creates its own page via dynamic route.
  */
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts.find(p => p.id === params.id && p.published);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { id } = await params;
+  const post = blogPosts.find((p: BlogPost) => p.id === id && p.published);
 
   if (!post) notFound();
+
+  const content = post.contentFile ? await loadBlogContent(post.contentFile) : null;
 
   return (
     <Section id="blog-post" heading="" maxWidth="3xl">
@@ -54,16 +58,48 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <h1 className="font-heading text-3xl md:text-4xl text-foreground mb-6">{post.title}</h1>
 
         <div className="flex flex-wrap gap-2 mb-8">
-          {post.tags.map((tag) => (
+          {post.tags.map((tag: string) => (
             <span key={tag} className="px-3 py-1 text-xs rounded-md bg-primary/10 text-primary">
               {tag}
             </span>
           ))}
         </div>
 
-        <div className="prose prose-invert prose-lg max-w-none text-foreground">
-          <p>{post.content}</p>
-        </div>
+        {content && (
+          <article className="prose prose-invert prose-lg max-w-none text-foreground">
+            {content.intro && (
+              <p className="lead text-xl mb-8 text-foreground/90">{content.intro}</p>
+            )}
+
+            {content.sections.map((section, index) => (
+              <div key={index} className="mb-10">
+                {section.heading && (
+                  <h2 className="font-heading text-2xl mt-8 mb-4">{section.heading}</h2>
+                )}
+                {section.content.split('\n\n').map((paragraph, pIndex) => (
+                  <p key={pIndex} className="mb-4">{paragraph}</p>
+                ))}
+                {section.image && (
+                  <div className="my-6 rounded-lg overflow-hidden border border-white/10">
+                    <Image
+                      src={section.image}
+                      alt={section.imageAlt || section.heading || 'Blog image'}
+                      width={800}
+                      height={450}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {content.conclusion && (
+              <div className="mt-10 pt-6 border-t border-white/10">
+                <p className="text-foreground/90">{content.conclusion}</p>
+              </div>
+            )}
+          </article>
+        )}
       </GlassCard>
     </Section>
   );

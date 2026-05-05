@@ -1,4 +1,5 @@
-import { BlogPost } from "@/data/blog";
+import { blogPosts } from "@/data/blog";
+import type { BlogPost } from "@/data/blog";
 import GlassCard from "@/components/ui/GlassCard";
 import { Clock, ArrowRight } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
@@ -36,7 +37,7 @@ export default function BlogCard({ post, index, variant = "compact" }: BlogCardP
             <p className="text-sm text-muted-foreground line-clamp-3">{post.excerpt}</p>
           </div>
           <div className="flex flex-wrap gap-2">
-            {(isFull ? post.tags : post.tags.slice(0, 3)).map((tag) => (
+            {(isFull ? post.tags : post.tags.slice(0, 3)).map((tag: string) => (
               <span key={tag} className={tagClass}>{tag}</span>
             ))}
           </div>
