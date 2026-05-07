@@ -40,18 +40,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) notFound();
 
-  const content = post.contentFile ? await loadBlogContent(post.contentFile) : null;
+  const content = post.contentFile
+    ? await loadBlogContent(post.contentFile)
+    : null;
 
   return (
     <>
-      <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+      <Link
+        href="/blog"
+        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+      >
         <ArrowLeft className="w-4 h-4" />
         Back to Blog
       </Link>
 
       <GlassCard variant="card" className="p-8 md:p-12">
         <div className="flex items-center gap-3 text-sm text-muted-foreground mb-6">
-          <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>
+            {new Date(post.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </span>
           <span>·</span>
           <span className="inline-flex items-center gap-1">
             <Clock className="w-4 h-4" />
@@ -59,11 +70,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </span>
         </div>
 
-        <h1 className="font-heading text-3xl md:text-4xl text-foreground mb-6">{post.title}</h1>
+        <h1 className="font-heading text-3xl md:text-4xl text-foreground mb-6">
+          {post.title}
+        </h1>
 
         <div className="flex flex-wrap gap-2 mb-8">
           {post.tags.map((tag: string) => (
-            <span key={tag} className="px-3 py-1 text-xs rounded-md bg-primary/10 text-primary">
+            <span
+              key={tag}
+              className="px-3 py-1 text-xs rounded-md bg-primary/10 text-primary"
+            >
               {tag}
             </span>
           ))}
@@ -73,25 +89,35 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <article className="prose prose-invert prose-lg max-w-none text-foreground">
             {content.intro && (
               <div className="lead text-xl mb-8 text-foreground/90">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{content.intro}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {content.intro}
+                </ReactMarkdown>
               </div>
             )}
 
             {content.sections.map((section, index) => (
               <div key={index} className="mb-10">
                 {section.heading && (
-                  <h2 className="font-heading text-2xl mt-8 mb-4">{section.heading}</h2>
+                  <h2 className="font-heading text-2xl mt-8 mb-4">
+                    {section.heading}
+                  </h2>
                 )}
                 <div className="prose prose-invert prose-lg max-w-none text-foreground">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeHighlight]}
+                  >
                     {section.content}
                   </ReactMarkdown>
                 </div>
                 {section.images && section.images.length > 0 && (
                   <div className="my-6 flex flex-col gap-4">
                     {section.images.map((img: BlogImage, idx: number) => (
-                      <div key={idx} className="rounded-lg overflow-hidden border border-white/10">
-                        {img.src.endsWith('.svg') ? (
+                      <div
+                        key={idx}
+                        className="rounded-lg overflow-hidden border border-white/10"
+                      >
+                        {img.src.endsWith(".svg") ? (
                           <img
                             src={img.src}
                             alt={img.alt}
@@ -115,7 +141,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {content.conclusion && (
               <div className="mt-10 pt-6 border-t border-white/10 text-foreground/90">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{content.conclusion}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {content.conclusion}
+                </ReactMarkdown>
               </div>
             )}
           </article>
