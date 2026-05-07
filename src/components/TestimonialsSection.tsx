@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
 
   return (
     <Section id="testimonials" heading={heading} subheading={subHeading} maxWidth="6xl">
-      <div ref={sectionRef} className="relative" tabIndex={0} role="region" aria-label="Testimonials carousel">
+      <div ref={sectionRef} className="relative" role="region" aria-label="Testimonials carousel">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentFrame}

@@ -64,7 +64,7 @@ export const portfolioData = {
         "Full-stack visualization engine that transforms Playwright test artifacts into interactive stakeholder dashboards.",
       details:
         "Architected and shipped DashWright, a comprehensive visualization engine built with Next.js and TypeScript. Aggregates Playwright test artifacts and transforms them into interactive, real-time dashboards for stakeholders. Features dark-themed UI with glassmorphism design, Playwright integration, and CI/CD pipeline support.",
-      tags: ["Next.js", "TypeScript", "Playwright", "React", "Tailwind CSS"],
+      tags: ["Next.js", "TypeScript", "Playwright", "React", "Tailwind CSS", "Vitest"],
       category: "fullstack" as const,
       liveUrl: "https://dashwright.com",
       featured: true,
@@ -85,7 +85,7 @@ export const portfolioCategories = [
   { value: "all", label: "ALL" },
   { value: "qa", label: "AUTOMATION" },
   { value: "static", label: "WEBSITE" },
-  { value: "fullstack", label: "WEB APPS" },
+  { value: "fullstack", label: "WEB APP" },
 ] as const;
 
 export type PortfolioCategory = (typeof portfolioCategories)[number]["value"];
