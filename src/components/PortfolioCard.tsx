@@ -22,7 +22,7 @@ export default function PortfolioCard({ project, index, variant = "compact" }: P
     <FadeIn delay={index * 0.1} className="h-full">
       <GlassCard
         variant="card"
-        className={`h-full ${padding} group hover:border-primary/50 transition-all duration-300 hover:shadow-[0_8px_32px_rgba(255,215,0,0.15)]`}
+        className={`h-full ${padding} group transition-all duration-300`}
         onClick={() => project.liveUrl && window.open(project.liveUrl, "_blank")}
       >
         <div className="flex items-start justify-between mb-4">
