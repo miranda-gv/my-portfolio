@@ -38,21 +38,32 @@ export const blogData: BlogData = {
         "Practical strategies for implementing shift-left testing with GitHub Actions and Playwright.",
       tags: ["CI/CD", "Playwright", "GitHub Actions", "QA Strategy"],
       readTime: 6,
-      published: false,
-      contentFile: "./posts/shift-left-testing-cicd",
+      published: true,
+      contentFile: "@/data/blog/posts/shift-left-testing-cicd",
     },
-    {
-      id: "glassmorphism-design-nextjs",
-      title: "Implementing Glassmorphism Design in Next.js",
-      date: "2026-05-20",
-      excerpt:
-        "A deep dive into creating modern glassmorphism effects with Tailwind CSS and Framer Motion.",
-      tags: ["Design", "Next.js", "Tailwind CSS", "Framer Motion"],
-      readTime: 5,
-      published: false,
-      contentFile: "./posts/glassmorphism-design-nextjs",
-    },
-  ],
+     {
+       id: "glassmorphism-design-nextjs",
+       title: "Implementing Glassmorphism Design in Next.js",
+       date: "2026-05-20",
+       excerpt:
+         "A deep dive into creating modern glassmorphism effects with Tailwind CSS and Framer Motion.",
+       tags: ["Design", "Next.js", "Tailwind CSS", "Framer Motion"],
+       readTime: 5,
+       published: true,
+        contentFile: "@/data/blog/posts/glassmorphism-design-nextjs",
+     },
+     {
+       id: "mastering-playwright-steps",
+       title: "Mastering Playwright Steps: From test.step to Custom Decorators",
+       date: "2026-06-01",
+       excerpt:
+         "Organize E2E tests with native test.step and scalable Step Decorators for cleaner Page Object Models.",
+       tags: ["Playwright", "TypeScript", "QA", "Testing Patterns"],
+       readTime: 7,
+       published: true,
+       contentFile: "@/data/blog/posts/mastering-playwright-steps",
+     },
+   ],
 };
 
 export const blogPosts = blogData.items;

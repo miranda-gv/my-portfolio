@@ -1,6 +1,6 @@
 import type { BlogPostContent } from "../types";
 
-export const buildingQADashboardsPost: BlogPostContent = {
+const content: BlogPostContent = {
   intro:
     "Testing is hard. Sharing test results shouldn't be. Here's how I built DashWright to turn Playwright test artifacts into beautiful, interactive dashboards that stakeholders actually want to look at.",
   sections: [
@@ -111,3 +111,5 @@ No more "the tests are running" black hole. Now it's "here's exactly what passed
 
 **Found this useful?** Follow me for more QA automation and Next.js content.`,
 };
+
+export default content;
