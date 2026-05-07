@@ -51,11 +51,14 @@ export default function BlogFilter({
   if (allTags.length === 0 && allYears.length === 0) return null;
 
   return (
-    <GlassCard variant="card" className="p-4 mb-8">
+    <GlassCard variant="card" className="p-4 mb-2">
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-muted-foreground">Filter Posts</span>
         {hasFilters && (
-          <button onClick={clearFilters} className="text-xs text-primary hover:underline inline-flex items-center gap-1">
+          <button
+            onClick={clearFilters}
+            className="text-xs text-primary hover:underline inline-flex items-center gap-1"
+          >
             <X className="w-3 h-3" />
             Clear
           </button>
