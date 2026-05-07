@@ -51,7 +51,7 @@ export default function BlogFilter({
   if (allTags.length === 0 && allYears.length === 0) return null;
 
   return (
-    <GlassCard variant="card" className="p-4 mb-2">
+    <GlassCard variant="card" className="p-4 mb-15">
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-muted-foreground">Filter Posts</span>
         {hasFilters && (
