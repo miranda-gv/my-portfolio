@@ -23,6 +23,8 @@ export interface PortfolioProject {
   image?: string;
   /** Project featured status */
   featured: boolean;
+  /** Key highlights/achievements */
+  highlights?: string[];
 }
 
 /**
@@ -48,6 +50,12 @@ export const portfolioData = {
       liveUrl: "https://mirandageorge.us",
       repoUrl: "https://github.com/miranda-gv/my-portfolio",
       featured: true,
+      highlights: [
+        "Modular, config-driven architecture with DRY components",
+        "Glassmorphism design system with backdrop blur effects",
+        "Framer Motion animations with intersection observer",
+        "Fully responsive with TypeScript type safety",
+      ],
     },
     {
       id: "dashwright",
@@ -60,6 +68,12 @@ export const portfolioData = {
       category: "fullstack" as const,
       liveUrl: "https://dashwright.com",
       featured: true,
+      highlights: [
+        "Transforms Playwright artifacts into interactive dashboards",
+        "Real-time data visualization with dark-themed glassmorphism UI",
+        "CI/CD pipeline integration for automated test reporting",
+        "Built with Next.js App Router and TypeScript",
+      ],
     },
   ] as PortfolioProject[],
 };

@@ -3,8 +3,6 @@
 import { useState, useMemo } from "react";
 import { portfolioProjects, portfolioData, PortfolioCategory, portfolioCategories } from "@/data/portfolio";
 import Section from "./ui/Section";
-import FadeIn from "./ui/FadeIn";
-import CardGrid, { GlassCardItem } from "./CardGrid";
 import ViewAllLink from "./ViewAllLink";
 import PortfolioCard from "./PortfolioCard";
 
@@ -29,27 +27,35 @@ export default function PortfolioSection() {
 
   return (
     <Section id="portfolio" heading={heading} subheading={subHeading} maxWidth="6xl">
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
         {portfolioCategories.map((cat) => (
           <button
             key={cat.value}
             onClick={() => setActiveFilter(cat.value)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 uppercase tracking-wider ${
               activeFilter === cat.value
-                ? "bg-primary text-background"
+                ? ""
                 : "glass-pill text-muted-foreground hover:text-foreground"
             }`}
+            style={
+              activeFilter === cat.value
+                ? {
+                    background: "linear-gradient(135deg, #D4AF37, #C9A961)",
+                    color: "hsl(var(--background))",
+                  }
+                : undefined
+            }
           >
             {cat.label}
           </button>
         ))}
       </div>
 
-      <CardGrid columns="2" gap="gap-6">
+      <div className="grid md:grid-cols-2 gap-6">
         {filteredProjects.map((project, index) => (
           <PortfolioCard key={project.id} project={project} index={index} variant="compact" />
         ))}
-      </CardGrid>
+      </div>
 
       <ViewAllLink href="/portfolio" label="View Full Portfolio" />
     </Section>
