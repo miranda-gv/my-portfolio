@@ -2,7 +2,6 @@ import { skillsData } from "@/data/skills";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import GlassCard from "@/components/ui/GlassCard";
-import { hoverPopSubtle } from "@/constants/animations";
 
 /**
  * Skills Page - Server Component
@@ -19,7 +18,7 @@ export default function SkillsPage() {
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((category, index) => (
           <FadeIn key={category.category} delay={index * 0.1}>
-            <GlassCard variant="card" className={`p-8 ${hoverPopSubtle}`}>
+            <GlassCard variant="card" className="p-8">
               <h3 className="font-heading text-xl text-foreground mb-6">{category.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.items.map((skill) => (

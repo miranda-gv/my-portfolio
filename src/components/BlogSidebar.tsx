@@ -15,7 +15,7 @@ export default function BlogSidebar() {
 
   const selectedTags = useMemo(
     () => searchParams.get("tags")?.split(",").filter(Boolean) ?? [],
-    [searchParams]
+    [searchParams],
   );
   const selectedYear = searchParams.get("year") ?? "";
 
@@ -23,27 +23,37 @@ export default function BlogSidebar() {
   const currentPostId = isPostPage ? pathname.split("/blog/")[1] : undefined;
 
   const publishedPosts = blogPosts.filter(
-    (p) => p.published && p.id !== currentPostId
+    (p) => p.published && p.id !== currentPostId,
   );
 
   const allTags = useMemo(
     () => [...new Set(publishedPosts.flatMap((p) => p.tags))].sort(),
-    [publishedPosts]
+    [publishedPosts],
   );
 
   const allYears = useMemo(
     () =>
-      [...new Set(publishedPosts.map((p) => new Date(p.date).getFullYear().toString()))]
+      [
+        ...new Set(
+          publishedPosts.map((p) => new Date(p.date).getFullYear().toString()),
+        ),
+      ]
         .sort()
         .reverse(),
-    [publishedPosts]
+    [publishedPosts],
   );
 
   const filteredPosts = useMemo(() => {
     return publishedPosts.filter((post) => {
-      if (selectedTags.length > 0 && !selectedTags.some((tag) => post.tags.includes(tag)))
+      if (
+        selectedTags.length > 0 &&
+        !selectedTags.some((tag) => post.tags.includes(tag))
+      )
         return false;
-      if (selectedYear && new Date(post.date).getFullYear().toString() !== selectedYear)
+      if (
+        selectedYear &&
+        new Date(post.date).getFullYear().toString() !== selectedYear
+      )
         return false;
       return true;
     });
@@ -80,7 +90,9 @@ export default function BlogSidebar() {
 
   return (
     <GlassCard variant="card" className="p-6">
-      <h3 className="font-heading text-lg mb-4">Filter Posts</h3>
+      <h3 className="font-heading text-lg mb-4">
+        <b>Filter Posts</b>
+      </h3>
 
       {hasFilters && (
         <div className="flex items-center justify-between mb-4">
@@ -141,7 +153,9 @@ export default function BlogSidebar() {
 
       <div className="space-y-3">
         {filteredPosts.length === 0 ? (
-          <p className="text-sm text-muted-foreground">No posts match your filters.</p>
+          <p className="text-sm text-muted-foreground">
+            No posts match your filters.
+          </p>
         ) : (
           filteredPosts.map((post) => (
             <Link

@@ -3,8 +3,6 @@ import GlassCard from "@/components/ui/GlassCard";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/SocialIconLink";
 import FadeIn from "@/components/ui/FadeIn";
-import { hoverPopSubtle } from "@/constants/animations";
-
 interface PortfolioCardProps {
   project: PortfolioProject;
   index: number;
@@ -25,7 +23,7 @@ export default function PortfolioCard({ project, index, variant = "compact" }: P
 
   return (
     <FadeIn delay={index * 0.1} className="h-full">
-      <GlassCard variant="card" className={`h-full ${padding} ${hoverPopSubtle}`}>
+      <GlassCard variant="card" className={`h-full ${padding}`}>
         <div className={mb}>
           <h3 className={`font-heading text-foreground ${titleClass}`}>{project.title}</h3>
           <p className={descClass}>{isFull ? project.details : project.description}</p>

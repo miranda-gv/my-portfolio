@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import GlassCard from "@/components/ui/GlassCard";
-import { hoverPopSubtle } from "@/constants/animations";
 
 interface CardGridProps {
   children: ReactNode;
@@ -32,7 +31,7 @@ interface GlassCardItemProps {
  */
 export function GlassCardItem({ children, className = "" }: GlassCardItemProps) {
   return (
-    <GlassCard variant="card" className={`h-full ${hoverPopSubtle} ${className}`}>
+    <GlassCard variant="card" className={`h-full ${className}`}>
       {children}
     </GlassCard>
   );

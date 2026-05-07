@@ -8,7 +8,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Section from "./ui/Section";
 import GlassCard from "./ui/GlassCard";
 import StarRating from "./ui/StarRating";
-import { hoverPopSubtle } from "@/constants/animations";
 
 const { frameTiers, defaultPerFrame } = testimonialConfig;
 
@@ -98,7 +97,7 @@ export default function TestimonialsSection() {
             aria-label={`Testimonials ${getFrameIndices().start + 1}-${getFrameIndices().end} of ${testimonials.length}`}
           >
             {getCurrentFrame().map((testimonial, idx) => (
-              <GlassCard key={idx} variant="card" className={`h-full p-6 md:p-8 ${hoverPopSubtle}`} tabIndex={0}>
+              <GlassCard key={idx} variant="card" className="h-full p-6 md:p-8" tabIndex={0}>
                 <StarRating rating={testimonial.rating} />
                 <p className="mb-6 italic text-muted-foreground">&quot;{testimonial.text}&quot;</p>
                 <div className="mt-auto">

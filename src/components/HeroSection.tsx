@@ -4,7 +4,6 @@ import { heroData } from "@/data/hero";
 import { ArrowDown } from "lucide-react";
 import { generateCV } from "@/lib/generate-cv";
 import GlassCard from "./ui/GlassCard";
-import { hoverPopSubtle } from "@/constants/animations";
 import Image from "next/image";
 import Link from "next/link";
 

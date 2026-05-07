@@ -2,7 +2,6 @@ import type { BlogPost } from "@/data/blog";
 import GlassCard from "@/components/ui/GlassCard";
 import { Clock, ArrowRight } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
-import { hoverPopSubtle } from "@/constants/animations";
 import Link from "next/link";
 
 interface BlogCardProps {
@@ -22,7 +21,7 @@ export default function BlogCard({ post, index, variant = "compact" }: BlogCardP
   return (
     <FadeIn delay={index * 0.1} className="h-full">
       <Link href={`/blog/${post.id}`}>
-        <GlassCard variant="card" className={`h-full ${padding} ${hoverPopSubtle} cursor-pointer`}>
+        <GlassCard variant="card" className={`h-full ${padding} cursor-pointer`}>
           <div className={isFull ? "mb-4" : "mb-4"}>
             <div className={`flex items-center gap-2 text-xs text-muted-foreground ${metaMb}`}>
               <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>

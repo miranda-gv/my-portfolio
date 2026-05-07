@@ -8,8 +8,8 @@ type GlassVariant = "base" | "strong" | "card" | "cardStrong" | "pill";
 const glassClasses: Record<GlassVariant, string> = {
   base: "glass-base shadow-glass",
   strong: "glass-strong shadow-glass",
-  card: "glass-card shadow-glass",
-  cardStrong: "glass-card-strong shadow-glass",
+  card: "glass-card shadow-glass transition-all duration-300 hover:scale-[1.02] hover:border-primary",
+  cardStrong: "glass-card-strong shadow-glass transition-all duration-300 hover:scale-[1.02] hover:border-primary",
   pill: "glass-pill shadow-glass",
 };
 

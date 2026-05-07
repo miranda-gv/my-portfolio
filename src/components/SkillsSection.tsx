@@ -4,7 +4,6 @@ import { skillsData } from "@/data/skills";
 import Section from "./ui/Section";
 import GlassCard from "./ui/GlassCard";
 import FadeIn from "./ui/FadeIn";
-import { hoverPopSubtle } from "@/constants/animations";
 
 /** Skill tag classes with hover states */
 const skillTagClasses = "px-3 py-1.5 rounded-lg text-sm transition-all duration-300 cursor-default bg-white/5 backdrop-blur-md border border-white/20 text-muted-foreground hover:bg-primary/30 hover:text-primary hover:border-primary";
@@ -34,7 +33,7 @@ export default function SkillsSection() {
                 delay={index * 0.1}
                 className="h-full"
               >
-                <GlassCard variant="card" className={`p-6 h-full ${hoverPopSubtle}`}>
+                <GlassCard variant="card" className="p-6 h-full">
                 <h3
                   className="mb-4 flex items-center gap-2 text-foreground text-xl"
                 >

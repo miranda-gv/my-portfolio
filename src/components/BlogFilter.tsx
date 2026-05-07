@@ -53,7 +53,9 @@ export default function BlogFilter({
   return (
     <GlassCard variant="card" className="p-4 mb-15">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-sm text-muted-foreground">Filter Posts</span>
+        <span className="text-sm text-muted-foreground">
+          <b>Filter Posts</b>
+        </span>
         {hasFilters && (
           <button
             onClick={clearFilters}

@@ -2,7 +2,6 @@ import { services, servicesData } from "@/data/services";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import GlassCard from "@/components/ui/GlassCard";
-import { hoverPopSubtle } from "@/constants/animations";
 import ServiceIcon from "@/components/ServiceIcon";
 import CheckIcon from "@/components/ui/CheckIcon";
 
@@ -24,7 +23,7 @@ export default function ServicesPage() {
       <div className="grid gap-8 md:grid-cols-3">
         {services.map((service, index) => (
           <FadeIn key={service.title} delay={index * 0.1} className="h-full">
-            <GlassCard variant="card" className={`h-full p-8 ${hoverPopSubtle}`}>
+            <GlassCard variant="card" className="h-full p-8">
               <div className="mb-6">
                 <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
                   <ServiceIcon icon={service.icon} className="w-7 h-7 text-primary" />

@@ -2,7 +2,6 @@ import { aboutData } from "@/data/about";
 import Section from "@/components/ui/Section";
 import FadeIn from "@/components/ui/FadeIn";
 import GlassCard from "@/components/ui/GlassCard";
-import { hoverPopSubtle } from "@/constants/animations";
 
 /**
  * About Page - Server Component
@@ -17,7 +16,7 @@ export default function AboutPage() {
   return (
     <Section id="about" heading={heading} maxWidth="4xl">
       <FadeIn>
-        <GlassCard variant="card" className={`p-8 md:p-12 ${hoverPopSubtle}`}>
+        <GlassCard variant="card" className="p-8 md:p-12">
           <div className="space-y-6 text-muted-foreground leading-relaxed mb-8">
             {paragraphs.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>

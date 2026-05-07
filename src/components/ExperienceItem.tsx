@@ -1,5 +1,4 @@
 import type { Experience } from "@/data/experience";
-import { hoverPopSubtle } from "@/constants/animations";
 
 /**
  * Props for the ExperienceItem component
@@ -36,7 +35,7 @@ export default function ExperienceItem({ experience: exp, index }: ExperienceIte
        />
 
        <div
-         className={`ml-8 md:ml-0 p-6 md:p-8 rounded-xl ${hoverPopSubtle} glass-base`}
+         className="ml-8 md:ml-0 p-6 md:p-8 rounded-xl glass-base transition-all duration-300 hover:scale-[1.02] hover:border-primary"
        >
         <div className={`mb-3 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} leading-tight`}>
           <span className="inline-block px-3 py-1 rounded-full text-sm bg-primary-glow/30 text-primary">

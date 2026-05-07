@@ -65,7 +65,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             No posts match your filters.
           </p>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
             {publishedPosts.map((post: BlogPost, index: number) => (
               <BlogCard
                 key={post.id}
