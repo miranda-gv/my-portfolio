@@ -1,13 +1,12 @@
 import { skillsData } from "@/data/skills";
 import Section from "@/components/ui/Section";
-import FadeIn from "@/components/ui/FadeIn";
-import GlassCard from "@/components/ui/GlassCard";
+import SkillCard from "@/components/SkillCard";
 
 /**
  * Skills Page - Server Component
  *
  * Full skills page displaying:
- * - All skill categories
+ * - All skill categories using shared SkillCard component
  * - Detailed skill lists per category
  */
 export default function SkillsPage() {
@@ -17,21 +16,7 @@ export default function SkillsPage() {
     <Section id="skills" heading={heading} maxWidth="6xl">
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((category, index) => (
-          <FadeIn key={category.category} delay={index * 0.1}>
-            <GlassCard variant="card" className="p-8">
-              <h3 className="font-heading text-xl text-foreground mb-6">{category.category}</h3>
-              <div className="flex flex-wrap gap-2">
-                {category.items.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 text-sm rounded-lg bg-primary/10 text-primary border border-primary/20"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </GlassCard>
-          </FadeIn>
+          <SkillCard key={category.category} category={category} index={index} variant="full" />
         ))}
       </div>
     </Section>
