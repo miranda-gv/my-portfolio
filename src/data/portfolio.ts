@@ -46,7 +46,7 @@ export const portfolioData = {
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       category: "fullstack" as const,
       liveUrl: "https://mirandageorge.us",
-      repoUrl: "https://github.com/anomalyco/my-portfolio",
+      repoUrl: "https://github.com/miranda-gv/my-portfolio",
       featured: true,
     },
     {
@@ -58,8 +58,7 @@ export const portfolioData = {
         "Architected and shipped DashWright, a comprehensive visualization engine built with Next.js and TypeScript. Aggregates Playwright test artifacts and transforms them into interactive, real-time dashboards for stakeholders. Features dark-themed UI with glassmorphism design, Playwright integration, and CI/CD pipeline support.",
       tags: ["Next.js", "TypeScript", "Playwright", "React", "Tailwind CSS"],
       category: "fullstack" as const,
-      liveUrl: "https://dashwright.example.com",
-      repoUrl: "https://github.com/miranda-gv/dashwright",
+      liveUrl: "https://dashwright.com",
       featured: true,
     },
   ] as PortfolioProject[],
