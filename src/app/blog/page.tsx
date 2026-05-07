@@ -4,7 +4,7 @@ import BlogCard from "@/components/BlogCard";
 import BlogFilter from "@/components/BlogFilter";
 
 interface BlogPageProps {
-  searchParams: Promise<{ tags?: string; year?: string; month?: string }>;
+  searchParams: Promise<{ tags?: string; year?: string }>;
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
@@ -13,7 +13,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   const selectedTags = params.tags?.split(",").filter(Boolean) ?? [];
   const selectedYear = params.year ?? "";
-  const selectedMonth = params.month ?? "";
 
   let publishedPosts = blogPosts.filter((p: BlogPost) => p.published);
 
@@ -26,12 +25,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   if (selectedYear) {
     publishedPosts = publishedPosts.filter(
       (p) => new Date(p.date).getFullYear().toString() === selectedYear
-    );
-  }
-
-  if (selectedMonth) {
-    publishedPosts = publishedPosts.filter(
-      (p) => new Date(p.date).getMonth().toString().padStart(2, '0') === selectedMonth
     );
   }
 
@@ -51,7 +44,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <BlogFilter
           selectedTags={selectedTags}
           selectedYear={selectedYear}
-          selectedMonth={selectedMonth}
           allTags={allTags}
           allYears={allYears}
         />
