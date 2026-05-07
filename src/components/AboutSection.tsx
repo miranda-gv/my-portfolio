@@ -3,7 +3,6 @@
 import { aboutData } from "@/data/about";
 import Section from "./ui/Section";
 import GlassCard from "./ui/GlassCard";
-import { hoverPopSubtle } from "@/constants/animations";
 
 /** Highlight icon container classes */
 const highlightIconClasses =
@@ -26,12 +25,12 @@ export default function AboutSection() {
 
   return (
     <Section id="about" heading={heading} maxWidth="4xl">
-      <GlassCard variant="base" className="p-8 md:p-12 rounded-2xl">
+      <GlassCard variant="card" className="p-8 md:p-12 rounded-2xl">
         {paragraphs.map((paragraph, index) => (
-            <p
-              key={index}
-              className={`${index > 0 ? "mt-4" : ""} text-muted-foreground text-lg leading-relaxed`}
-            >
+          <p
+            key={index}
+            className={`${index > 0 ? "mt-4" : ""} text-muted-foreground text-lg leading-relaxed`}
+          >
             {paragraph}
           </p>
         ))}
