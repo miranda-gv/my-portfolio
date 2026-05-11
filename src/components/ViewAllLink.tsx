@@ -15,7 +15,7 @@ export default function ViewAllLink({ href, label = "View All" }: ViewAllLinkPro
     <div className="text-center mt-12">
       <Link
         href={href}
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-pill text-primary border border-primary/30 hover:bg-primary/10 transition-all duration-300 font-medium"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-pill text-primary border border-primary/30 hover:border-2 hover:border-primary hover:bg-primary/10 transition-all duration-300 font-medium"
       >
         {label}
         <ArrowRight className="w-4 h-4" />
