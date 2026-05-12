@@ -35,7 +35,7 @@ export default function PortfolioSection() {
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 uppercase tracking-wider ${
               activeFilter === cat.value
                 ? "text-background"
-                : "glass-pill text-muted-foreground hover:text-foreground"
+                : "glass-pill text-muted-foreground hover:bg-primary/20 hover:text-primary hover:border-primary"
             }`}
             style={
               activeFilter === cat.value
