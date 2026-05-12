@@ -42,7 +42,7 @@ export default function TestimonialModal({ isOpen, onClose, onSubmit }: Testimon
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-foreground/60 backdrop-blur-sm" onClick={onClose} />
       <div className="relative w-full max-w-lg glass-card-strong p-8 rounded-2xl shadow-2xl">
         <button
           onClick={onClose}
@@ -75,19 +75,19 @@ export default function TestimonialModal({ isOpen, onClose, onSubmit }: Testimon
           </div>
           <div>
             <label className="block text-sm text-muted-foreground mb-1">Name *</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-foreground focus:outline-none focus:border-primary" />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className="w-full px-4 py-2 rounded-lg bg-muted/80 border border-border text-foreground focus:outline-none focus:border-primary" />
           </div>
           <div>
             <label className="block text-sm text-muted-foreground mb-1">Title *</label>
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required placeholder="e.g. CEO at Company" className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-foreground focus:outline-none focus:border-primary" />
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required placeholder="e.g. CEO at Company" className="w-full px-4 py-2 rounded-lg bg-muted/80 border border-border text-foreground focus:outline-none focus:border-primary" />
           </div>
           <div>
             <label className="block text-sm text-muted-foreground mb-1">Company</label>
-            <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-foreground focus:outline-none focus:border-primary" />
+            <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} className="w-full px-4 py-2 rounded-lg bg-muted/80 border border-border text-foreground focus:outline-none focus:border-primary" />
           </div>
           <div>
             <label className="block text-sm text-muted-foreground mb-1">Testimonial *</label>
-            <textarea value={text} onChange={(e) => setText(e.target.value)} required rows={4} className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-foreground focus:outline-none focus:border-primary resize-none" />
+            <textarea value={text} onChange={(e) => setText(e.target.value)} required rows={4} className="w-full px-4 py-2 rounded-lg bg-muted/80 border border-border text-foreground focus:outline-none focus:border-primary resize-none" />
           </div>
           <div className="flex gap-3 pt-4">
             <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-lg glass-pill text-muted-foreground hover:text-foreground transition-colors">Cancel</button>

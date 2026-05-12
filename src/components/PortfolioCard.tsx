@@ -9,7 +9,7 @@ interface PortfolioCardProps {
   variant?: "compact" | "full";
 }
 
-const tagClass = "px-2 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-muted-foreground";
+const tagClass = "px-2 py-1 text-xs rounded-md bg-muted/80 border border-border text-muted-foreground";
 
 export default function PortfolioCard({ project, index, variant = "compact" }: PortfolioCardProps) {
   const isFull = variant === "full";

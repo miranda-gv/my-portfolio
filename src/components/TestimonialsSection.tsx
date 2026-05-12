@@ -116,7 +116,7 @@ export default function TestimonialsSection() {
           </button>
           <div className="flex gap-2" role="tablist" aria-label="Testimonial pages">
             {[...Array(totalFrames)].map((_, i) => (
-              <button key={i} onClick={() => goToFrame(i)} className={`w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary ${i === currentFrame ? 'bg-primary' : 'bg-white/20'}`} role="tab" aria-selected={i === currentFrame} aria-label={`Page ${i + 1}`} />
+              <button key={i} onClick={() => goToFrame(i)} className={`w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary ${i === currentFrame ? 'bg-primary' : 'bg-muted'}`} role="tab" aria-selected={i === currentFrame} aria-label={`Page ${i + 1}`} />
             ))}
           </div>
           <button onClick={next} className="flex items-center justify-center p-2 min-h-[44px] min-w-[44px] rounded-full transition-all duration-300 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary glass-pill text-muted-foreground" aria-label="Next testimonials">

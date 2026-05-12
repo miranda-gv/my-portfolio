@@ -9,7 +9,7 @@ interface SkillCardProps {
 }
 
 const skillTagClasses = {
-  compact: "px-3 py-1.5 rounded-lg text-sm bg-white/5 backdrop-blur-md border border-white/20 text-muted-foreground hover:bg-primary/30 hover:text-primary hover:border-primary transition-all duration-300 cursor-default",
+  compact: "px-3 py-1.5 rounded-lg text-sm bg-muted/80 backdrop-blur-md border border-border text-muted-foreground hover:bg-primary/30 hover:text-primary hover:border-primary transition-all duration-300 cursor-default",
   full: "px-3 py-1.5 text-sm rounded-lg bg-primary/10 text-primary border border-primary/20",
 };
 

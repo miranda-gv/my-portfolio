@@ -101,7 +101,7 @@ export default function Navbar() {
                   </NavLink>
                 </li>
               ))}
-              <div className="border-t border-white/10 my-2" />
+              <div className="border-t border-border my-2" />
               <li>
                 <Link href="/contact" className="flex items-center gap-2 py-2 px-4 text-primary" onClick={() => setMobileOpen(false)}>
                   <Mail className="w-4 h-4" />

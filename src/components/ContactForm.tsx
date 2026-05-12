@@ -6,7 +6,7 @@ import { contactData } from "@/data/contact";
 import GlassCard from "./ui/GlassCard";
 
 const inputClasses =
-  "w-full px-4 py-3 rounded-lg bg-white/5 border border-white/20 text-foreground placeholder:text-muted-foreground text-base transition-colors focus:outline-none focus:border-primary/50";
+  "w-full px-4 py-3 rounded-lg bg-muted/80 border border-border text-foreground placeholder:text-muted-foreground text-base transition-colors focus:outline-none focus:border-primary/50";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });

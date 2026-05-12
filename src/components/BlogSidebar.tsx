@@ -161,7 +161,7 @@ export default function BlogSidebar() {
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
-              className="block p-3 rounded-lg hover:bg-white/5 transition-colors group"
+              className="block p-3 rounded-lg hover:bg-muted/50 transition-colors group"
             >
               <h4 className="font-heading text-sm text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
                 {post.title}

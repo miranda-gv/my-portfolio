@@ -15,7 +15,7 @@ import { footerData } from "@/data/footer";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="py-8 bg-background border-t border-white/10">
+    <footer className="py-8 bg-background border-t border-border">
        <div className="container mx-auto px-4 text-center space-y-3">
          <p className="text-muted-foreground text-sm">
            © {year}. {footerData.copyright.lines[0]}

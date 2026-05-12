@@ -40,13 +40,13 @@ export default function ServiceCard({ service, index, className = "" }: ServiceC
           </li>
         ))}
       </ul>
-      <div className="pt-4 border-t border-white/20">
+      <div className="pt-4 border-t border-border">
         <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Technologies</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {service.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 rounded text-xs border border-white/20 bg-white/5 text-muted-foreground"
+              className="px-2 py-1 rounded text-xs border border-border bg-muted/80 text-muted-foreground"
             >
               {tech}
             </span>

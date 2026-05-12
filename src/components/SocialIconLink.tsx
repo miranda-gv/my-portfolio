@@ -17,7 +17,7 @@ export default function SocialIconLink({ href, label, children, className = "" }
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-        className={`group w-12 h-12 rounded-full flex items-center justify-center bg-white/5 border border-white/20 text-primary transition-all duration-300 hover:scale-110 hover:glass-gradient hover:border-primary hover:shadow-lg hover:shadow-primary/30 hover:text-background ${className}`}
+        className={`group w-12 h-12 rounded-full flex items-center justify-center bg-muted/80 border border-border text-primary transition-all duration-300 hover:scale-110 hover:glass-gradient hover:border-primary hover:shadow-lg hover:shadow-primary/30 hover:text-foreground ${className}`}
       aria-label={label}
     >
       {children}
