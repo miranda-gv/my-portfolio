@@ -65,7 +65,7 @@ export default function Navbar() {
           {siteConfig.name}
         </Link>
 
-        {/* Desktop Nav */}
+{/* Desktop Nav */}
         <ul className="hidden min-[1010px]:flex items-center gap-1" role="list">
           {navLinks.map((link) => (
             <li key={link.href} role="listitem">
