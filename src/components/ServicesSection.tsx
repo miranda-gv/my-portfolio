@@ -27,7 +27,9 @@ export default function ServicesSection() {
           </FadeIn>
         ))}
       </CardGrid>
-      <ViewAllLink href="/services" label="View All Services" />
+      <div className="text-center mt-12">
+        <ViewAllLink href="/services" label="View All Services" />
+      </div>
     </Section>
   );
 }

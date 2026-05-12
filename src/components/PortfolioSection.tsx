@@ -34,14 +34,14 @@ export default function PortfolioSection() {
             onClick={() => setActiveFilter(cat.value)}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 uppercase tracking-wider ${
               activeFilter === cat.value
-                ? ""
+                ? "text-background"
                 : "glass-pill text-muted-foreground hover:text-foreground"
             }`}
             style={
               activeFilter === cat.value
                 ? {
-                    background: "linear-gradient(135deg, #D4AF37, #C9A961)",
-                    color: "hsl(var(--background))",
+                    background: "var(--color-primary)",
+                    color: "var(--color-primary-foreground)",
                   }
                 : undefined
             }
@@ -57,7 +57,9 @@ export default function PortfolioSection() {
         ))}
       </div>
 
-      <ViewAllLink href="/portfolio" label="View Full Portfolio" />
+      <div className="text-center mt-12">
+        <ViewAllLink href="/portfolio" label="View All Projects" />
+      </div>
     </Section>
   );
 }

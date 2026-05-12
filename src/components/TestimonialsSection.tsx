@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Section from "./ui/Section";
 import GlassCard from "./ui/GlassCard";
 import StarRating from "./ui/StarRating";
+import ViewAllLink from "./ViewAllLink";
 
 const { frameTiers, defaultPerFrame } = testimonialConfig;
 
@@ -124,10 +125,7 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="text-center mt-8">
-          <a href="/testimonials" className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-pill text-primary border border-primary/30 hover:bg-primary/10 transition-all duration-300 font-medium">
-            View All Testimonials
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-          </a>
+          <ViewAllLink href="/testimonials" label="View All Testimonials" />
         </div>
       </div>
     </Section>

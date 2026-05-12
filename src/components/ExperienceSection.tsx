@@ -5,6 +5,7 @@ import { experience, experienceData } from "@/data/experience";
 import Section from "./ui/Section";
 import FadeIn from "./ui/FadeIn";
 import ExperienceItem from "./ExperienceItem";
+import ViewAllLink from "./ViewAllLink";
 
 /**
  * Experience Section - Client Component
@@ -43,7 +44,7 @@ export default function ExperienceSection() {
             {!showAll && experience.length > 1 && (
               <button
                 onClick={() => setShowAll(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-pill text-primary border border-primary/30 hover:bg-primary/10 transition-all duration-300 font-medium"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-pill text-primary border border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300 font-medium"
               >
                 View More Experience
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -51,15 +52,7 @@ export default function ExperienceSection() {
                 </svg>
               </button>
             )}
-            <a
-              href="/experience"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-pill text-primary border border-primary/30 hover:bg-primary/10 transition-all duration-300 font-medium"
-            >
-              View All Experience
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+            <ViewAllLink href="/experience" label="View All Experience" />
           </div>
       </Section>
    );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans, DM_Sans, Playfair_Display, Syne, Outfit, Urbanist, Cormorant_Garamond, Bebas_Neue, Archivo, Sora, Work_Sans } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import "@/styles/globals.css";
 import Navbar from "@/components/Navbar";
@@ -9,28 +9,76 @@ import StructuredData from "@/components/StructuredData";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { themes, activeTheme } from "@/config/themes";
 
-/**
- * Google Fonts configuration for the portfolio
- * @see https://nextjs.org/docs/app/building-your-application/optimizing/fonts
- */
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-space-grotesk",
 });
 
-/** Primary heading font - used for headings and display text */
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-plus-jakarta",
 });
 
-/** Secondary body font - used for UI elements and smaller text */
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-dm-sans",
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-playfair-display",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-syne",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-outfit",
+});
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-urbanist",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cormorant-garamond",
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-bebas-neue",
+});
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-archivo",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-sora",
+});
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-work-sans",
 });
 
 /** Generate CSS custom properties from active theme */
@@ -126,7 +174,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`h-full antialiased ${spaceGrotesk.variable} ${plusJakarta.variable} ${dmSans.variable}`} style={themeStyles}>
+    <html lang="en" suppressHydrationWarning className={`h-full antialiased ${spaceGrotesk.variable} ${plusJakarta.variable} ${dmSans.variable} ${playfairDisplay.variable} ${syne.variable} ${outfit.variable} ${urbanist.variable} ${cormorantGaramond.variable} ${bebasNeue.variable} ${archivo.variable} ${sora.variable} ${workSans.variable}`} style={themeStyles}>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <GoogleAnalytics />
         <StructuredData />

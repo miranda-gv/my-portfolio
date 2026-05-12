@@ -62,13 +62,13 @@ export default function ThemeSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute bottom-14 right-0 flex flex-col gap-2 p-2 rounded-lg glass-strong"
+            className="absolute bottom-12 right-0 flex flex-col gap-1 p-1.5 rounded-lg glass-strong"
           >
             {(Object.keys(themes) as ThemeName[]).map((key) => (
               <button
                 key={key}
                 onClick={() => applyTheme(key)}
-                className="px-3 py-1.5 rounded-md text-xs font-medium uppercase tracking-wider transition-transform hover:scale-105"
+                className="px-2 py-1 rounded text-[10px] font-semibold uppercase tracking-wide transition-transform hover:scale-105"
                 style={{
                   backgroundColor: themes[key].colors.primary,
                   color: themes[key].colors.primaryForeground,
@@ -85,7 +85,7 @@ export default function ThemeSwitcher() {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-10 h-10 rounded-full glass-strong flex items-center justify-center shadow-lg"
+        className="w-8 h-8 rounded-full glass-strong flex items-center justify-center shadow-lg"
         aria-label="Switch theme"
       >
         <Palette size={16} />

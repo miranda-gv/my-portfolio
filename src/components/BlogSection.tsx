@@ -26,7 +26,9 @@ export default function BlogSection() {
           <BlogCard key={post.id} post={post} index={index} variant="compact" />
         ))}
       </CardGrid>
-      <ViewAllLink href="/blog" label="Read All Posts" />
+      <div className="text-center mt-12">
+        <ViewAllLink href="/blog" label="View All Posts" />
+      </div>
     </Section>
   );
 }
