@@ -85,6 +85,9 @@
   *:focus {
     @apply outline-2 outline-offset-2 outline-primary;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground font-sans;
   }
@@ -165,4 +168,17 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+nav a:focus,
+footer a:focus,
+section#portfolio a:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+section#portfolio a:hover,
+section#portfolio a:focus {
+  text-decoration: underline;
+  color: var(--color-primary);
 }
