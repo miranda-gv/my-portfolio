@@ -10,5 +10,5 @@ export const heroData = {
   intro:
     'I’m a Senior SDET and Product Builder who believes software should be as stable as it is beautiful. Leveraging 15 years of quality leadership and 4 years of Playwright expertise, I craft high-fidelity Next.js applications and robust Playwright automation frameworks. My mission is to ship flawless, dark-themed user experiences using Tailwind CSS and a "tester’s intuition" for bulletproof code.',
   title: "Sr. SDET | Automation Architect | Web Developer",
-  headshotSrc: "/images/headshot.png",
+  headshotSrc: "/images/headshot.jpg",
 } as const;
