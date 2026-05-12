@@ -8,7 +8,7 @@ import Section from "@/components/ui/Section";
  */
 export default function PrivacyPage() {
   return (
-    <Section id="privacy" heading="PRIVACY POLICY" maxWidth="4xl">
+    <Section id="privacy" heading="PRIVACY POLICY" headingMargin="lg" maxWidth="4xl">
       <div className="glass-card p-8 md:p-12 space-y-8 text-muted-foreground text-sm leading-relaxed">
         <div>
           <h2 className="font-heading text-xl text-foreground mb-3">1. Information Collection</h2>

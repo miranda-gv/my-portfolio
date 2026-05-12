@@ -70,7 +70,7 @@ export default function TestimonialsPage() {
   };
 
   return (
-    <Section id="testimonials" heading={heading} subheading={subHeading} maxWidth="6xl">
+    <Section id="testimonials" heading={heading} subheading={subHeading} headingMargin="lg" maxWidth="6xl">
       <div className="flex justify-between items-center mb-10">
         <p className="text-muted-foreground">All testimonials from colleagues and clients</p>
         <button

@@ -8,7 +8,7 @@ import Section from "@/components/ui/Section";
  */
 export default function TermsPage() {
   return (
-    <Section id="terms" heading="TERMS & CONDITIONS" maxWidth="4xl">
+    <Section id="terms" heading="TERMS & CONDITIONS" headingMargin="lg" maxWidth="4xl">
       <div className="glass-card p-8 md:p-12 space-y-8 text-muted-foreground text-sm leading-relaxed">
         <div>
           <h2 className="font-heading text-xl text-foreground mb-3">1. Acceptance of Terms</h2>

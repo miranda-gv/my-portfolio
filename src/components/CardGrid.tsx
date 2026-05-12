@@ -13,7 +13,7 @@ interface CardGridProps {
  * Wraps children in a responsive grid with glass cards
  */
 export default function CardGrid({ children, columns = "3", gap = "gap-6", className = "" }: CardGridProps) {
-  const gridCols = columns === "2" ? "md:grid-cols-2" : "md:grid-cols-3";
+  const gridCols = columns === "2" ? "sm:grid-cols-2" : "min-[1030px]:grid-cols-3";
   return (
     <div className={`grid ${gap} ${gridCols} ${className}`}>
       {children}

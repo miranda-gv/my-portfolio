@@ -29,7 +29,7 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <PortfolioSection />
-      <ExperienceSection />
+      <ExperienceSection isHome />
       <SkillsSection />
       <ClientsSection />
       <TestimonialsSection />

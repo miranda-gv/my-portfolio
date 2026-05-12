@@ -6,25 +6,23 @@ import Section from "./ui/Section";
 import FadeIn from "./ui/FadeIn";
 import ExperienceItem from "./ExperienceItem";
 import ViewAllLink from "./ViewAllLink";
+import ExperienceCarousel from "./ExperienceCarousel";
 
-/**
- * Experience Section - Client Component
- *
- * Displays work history overview on homepage with:
- * - Only the most recent/top experience item
- * - "View more" link to expand below (client-side toggle)
- * - "View all Experience" link to dedicated Experience page
- * - Vertical timeline layout with fade-in animations
- *
- * @returns The experience section with top item and view more option
- */
-export default function ExperienceSection() {
+interface ExperienceSectionProps {
+  isHome?: boolean;
+}
+
+export default function ExperienceSection({ isHome = false }: ExperienceSectionProps) {
   const { heading } = experienceData;
   const [showAll, setShowAll] = useState(false);
   const visibleExperience = showAll ? experience : experience.slice(0, 1);
 
   return (
     <Section id="experience" heading={heading} maxWidth="4xl">
+      {isHome ? (
+        <ExperienceCarousel />
+      ) : (
+        <>
           <div className="relative">
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 timeline-line" />
 
@@ -37,7 +35,7 @@ export default function ExperienceSection() {
               >
                 <ExperienceItem experience={exp} index={index} />
               </FadeIn>
-             ))}
+            ))}
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
@@ -54,6 +52,8 @@ export default function ExperienceSection() {
             )}
             <ViewAllLink href="/experience" label="View All Experience" />
           </div>
-      </Section>
-   );
-  }
+        </>
+      )}
+    </Section>
+  );
+}

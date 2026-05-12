@@ -66,7 +66,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-1" role="list">
+        <ul className="hidden min-[1010px]:flex items-center gap-1" role="list">
           {navLinks.map((link) => (
             <li key={link.href} role="listitem">
               <NavLink href={link.href} isActive={pathname === link.href}>
@@ -83,7 +83,7 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden p-3 min-h-[44px] min-w-[44px]" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu" aria-expanded={mobileOpen}>
+        <button className="min-[1010px]:hidden p-3 min-h-[44px] min-w-[44px]" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu" aria-expanded={mobileOpen}>
           {mobileOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
@@ -91,7 +91,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-background/95 backdrop-blur-md border-t overflow-hidden">
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="min-[1010px]:hidden bg-background/95 backdrop-blur-md border-t overflow-hidden">
             <ul className="flex flex-col py-4 px-4 gap-1">
               <p className="px-4 py-2 text-xs uppercase tracking-wider text-muted-foreground/60">Pages</p>
               {navLinks.map((link) => (

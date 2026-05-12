@@ -24,7 +24,7 @@ export default function SecondaryNav() {
   if (!isVisible) return null;
 
   return (
-    <div className="secondary-nav fixed top-16 left-0 right-0 z-40 w-full bg-background/95 overflow-hidden transition-all duration-300">
+    <div className="secondary-nav hidden min-[1230px]:block fixed top-16 left-0 right-0 z-40 w-full bg-background/95 overflow-hidden transition-all duration-300">
       <div className="container mx-auto px-4 py-2.5 overflow-hidden">
         <ul className="flex items-center gap-1.5 overflow-hidden" role="list">
           {sectionLinks.map((link) => {

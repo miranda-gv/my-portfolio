@@ -11,7 +11,7 @@ import ContactInfo from "@/components/ContactInfo";
  */
 export default function ContactPage() {
   return (
-    <Section id="contact" heading="CONTACT" maxWidth="4xl">
+    <Section id="contact" heading="CONTACT" headingMargin="lg" maxWidth="4xl">
       <div className="max-w-3xl mx-auto">
         <h3 className="font-heading text-3xl text-foreground mb-4 text-center">Get In Touch</h3>
         <p className="text-muted-foreground mb-10 text-center">

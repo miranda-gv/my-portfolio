@@ -45,7 +45,7 @@ export default function HeroSection() {
               </GlassCard>
             </div>
             <h1
-              className="font-heading mb-6 tracking-tight text-foreground text-5xl md:text-6xl lg:text-7xl leading-tight"
+              className="font-heading mb-6 tracking-tight text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none"
             >
               {name}
             </h1>

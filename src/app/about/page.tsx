@@ -14,7 +14,7 @@ export default function AboutPage() {
   const { heading, paragraphs, highlights } = aboutData;
 
   return (
-    <Section id="about" heading={heading} maxWidth="4xl">
+    <Section id="about" heading={heading} headingMargin="lg" maxWidth="4xl">
       <FadeIn>
         <GlassCard variant="card" className="p-8 md:p-12">
           <div className="space-y-6 text-muted-foreground leading-relaxed mb-8">

@@ -18,6 +18,8 @@ interface SectionProps {
   className?: string;
   /** Section content */
   children: ReactNode;
+  /** Top margin for heading (default: mt-4, use "lg" for mt-20) */
+  headingMargin?: "sm" | "lg";
 }
 
 /** Maps max-width presets to actual pixel values */
@@ -58,16 +60,17 @@ export default function Section({
   headingClassName = "",
   className = "",
   children,
+  headingMargin = "sm",
 }: SectionProps) {
-  const headingMargin = subheading ? "mb-8" : "mb-24";
+  const headingMarginClass = headingMargin === "lg" ? "mt-20" : "mt-4";
 
   return (
-    <section id={id} className={`py-24 bg-background ${className}`}>
+    <section id={id} className={`py-16 bg-background ${className}`}>
       <div className="container mx-auto px-6">
          <div className="mx-auto" style={{ maxWidth: maxWidth === "none" ? undefined : (maxWidthMap[maxWidth] || maxWidthMap["4xl"]) }}>
           {heading && (
             <h2
-               className={`font-heading mt-12 mb-12 ${headingClassName} text-center text-foreground text-3xl md:text-4xl`}
+               className={`font-heading ${headingMarginClass} mb-12 ${headingClassName} text-center text-foreground text-3xl md:text-4xl`}
             >
               {heading}
             </h2>

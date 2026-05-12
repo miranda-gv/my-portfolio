@@ -28,7 +28,7 @@ export default function PortfolioPage() {
   , [activeFilter]);
 
   return (
-    <Section id="portfolio" heading={heading} subheading={subHeading} maxWidth="6xl">
+    <Section id="portfolio" heading={heading} subheading={subHeading} headingMargin="lg" maxWidth="6xl">
       <div className="flex flex-wrap justify-center gap-2 mb-10">
         {portfolioCategories.map((cat) => (
           <button

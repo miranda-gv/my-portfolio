@@ -18,7 +18,7 @@ export default function ExperiencePage() {
   const { heading } = experienceData;
 
   return (
-    <Section id="experience" heading={heading} maxWidth="4xl">
+    <Section id="experience" heading={heading} headingMargin="lg" maxWidth="4xl">
       <div className="relative">
         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 timeline-line" />
         {experience.map((exp, index) => (
