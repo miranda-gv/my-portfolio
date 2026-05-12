@@ -79,7 +79,8 @@ export default function HeroSection() {
           <div className="flex justify-center">
             <GlassCard
               variant="base"
-              className="relative w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-primary/30"
+              className="relative w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-4 border-primary/30"
+              style={{ boxShadow: `0 0 20px rgba(var(--color-primary-glow), 0.3), 0 0 40px rgba(var(--color-primary-glow), 0.2)` }}
             >
               <Image
                 src={headshotSrc}
@@ -89,7 +90,7 @@ export default function HeroSection() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 ring-1 ring-primary/20 rounded-2xl" />
+              <div className="absolute inset-0 ring-2 ring-primary/30 rounded-2xl" />
             </GlassCard>
           </div>
         </div>
