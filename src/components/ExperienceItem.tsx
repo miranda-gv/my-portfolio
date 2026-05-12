@@ -38,7 +38,7 @@ export default function ExperienceItem({ experience: exp, index }: ExperienceIte
          className="ml-8 md:ml-0 p-6 md:p-8 rounded-xl glass-base transition-all duration-300 hover:scale-[1.02] hover:border-primary/30"
        >
         <div className={`mb-3 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} leading-tight`}>
-          <span className="inline-block px-3 py-1 rounded-full text-sm bg-primary-glow/30 text-primary">
+          <span className="inline-block px-3 py-1 rounded-full text-sm glass-pill text-primary font-medium">
             {exp.dates}
           </span>
         </div>

@@ -46,7 +46,7 @@ export default function ExperienceCarousel() {
           >
             <div className="glass-base rounded-2xl p-8 md:p-10 transition-all duration-300">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-primary-glow/30 text-primary w-fit">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm glass-pill text-primary w-fit">
                   {currentExp.dates}
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">

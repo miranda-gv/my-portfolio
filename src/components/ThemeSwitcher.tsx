@@ -1,9 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { themes, type ThemeName } from "@/config/themes";
+import { themes, type ThemeName, activeTheme } from "@/config/themes";
+
+const THEME_STORAGE_KEY = "selected-theme";
+
+const themeOrder: ThemeName[] = [
+  "gold",
+  "amber",
+  "rose",
+  "coral",
+  "fuchsia",
+  "purple",
+  "violet",
+  "indigo",
+  "blue",
+  "sky",
+  "cyan",
+  "teal",
+  "lime",
+  "storm",
+];
 
 const themeVarEntries = (themeName: ThemeName) => {
   const t = themes[themeName];
@@ -36,18 +55,26 @@ const themeVarEntries = (themeName: ThemeName) => {
   } as React.CSSProperties;
 };
 
+const applyTheme = (themeName: ThemeName) => {
+  const vars = themeVarEntries(themeName);
+  const root = document.documentElement;
+  Object.entries(vars).forEach(([prop, value]) => {
+    root.style.setProperty(prop, value);
+  });
+  localStorage.setItem(THEME_STORAGE_KEY, themeName);
+};
+
 export default function ThemeSwitcher() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const applyTheme = (themeName: ThemeName) => {
-    const vars = themeVarEntries(themeName);
-    const root = document.documentElement;
-    Object.entries(vars).forEach(([prop, value]) => {
-      root.style.setProperty(prop, value);
-    });
-  };
+  useEffect(() => {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as ThemeName | null;
+    applyTheme(savedTheme && savedTheme in themes ? savedTheme : activeTheme);
+    setMounted(true);
+  }, []);
 
-  if (process.env.NODE_ENV === "production") return null;
+  if (process.env.NODE_ENV === "production" || !mounted) return null;
 
   return (
     <div
@@ -64,7 +91,7 @@ export default function ThemeSwitcher() {
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="absolute bottom-12 right-0 flex flex-col gap-1 p-1.5 rounded-lg glass-strong"
           >
-            {(Object.keys(themes) as ThemeName[]).map((key) => (
+            {themeOrder.map((key) => (
               <button
                 key={key}
                 onClick={() => applyTheme(key)}
